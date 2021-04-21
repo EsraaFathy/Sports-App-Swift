@@ -11,4 +11,5 @@ class MYCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var labelView: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    //gtag
 }
