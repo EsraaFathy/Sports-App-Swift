@@ -6,24 +6,46 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchFilms()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        print("segue prepared called")
     }
-    */
 
+}
+
+extension HomeViewController {
+  func fetchFilms() {
+        let url = "https://www.thesportsdb.com/api/v1/json/1/all_sports.php"
+        AF.request(url).validate().responseJSON { response in
+            switch response.result {
+            case .success(let data):
+                let json = JSON(data)
+               let sportsData = json["sports"]
+                for s in sportsData {
+                  let aa =  s.1.dictionaryObject!["strSport"] as! String
+//                   let aa = s as! Dictionary<String,String>
+//                    print("..........")
+//                    let j = JSON(s)
+                    print(aa)
+                }
+                break
+            case .failure(let error):
+                print("Request failed with error: \(error)")
+            }
+        }
+
+//    }
+    
+  }
+    
 }
