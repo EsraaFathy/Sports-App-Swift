@@ -14,7 +14,7 @@ struct Welcome: Decodable {
 // MARK: - Sport
 struct Sport: Decodable {
     let idSport, strSport: String
-    let strFormat: StrFormat
+    let strFormat: String
     let strSportThumb, strSportThumbGreen: String
     let strSportDescription: String
 }
