@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0269A90D2630D68100CEE89C /* LeagueEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269A90C2630D68100CEE89C /* LeagueEventsViewController.swift */; };
+		0269A9112630D8B000CEE89C /* LastEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269A9102630D8B000CEE89C /* LastEvents.swift */; };
+		0269A9152630DE8600CEE89C /* LastEventesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269A9142630DE8600CEE89C /* LastEventesTableViewCell.swift */; };
 		026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2038262FAFA60081DC38 /* AllSportsModel.swift */; };
 		026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
@@ -23,6 +26,9 @@
 
 /* Begin PBXFileReference section */
 		0249F1FF26307338006418F0 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		0269A90C2630D68100CEE89C /* LeagueEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueEventsViewController.swift; sourceTree = "<group>"; };
+		0269A9102630D8B000CEE89C /* LastEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastEvents.swift; sourceTree = "<group>"; };
+		0269A9142630DE8600CEE89C /* LastEventesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastEventesTableViewCell.swift; sourceTree = "<group>"; };
 		026D2038262FAFA60081DC38 /* AllSportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsModel.swift; sourceTree = "<group>"; };
 		026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYCollectionViewCell.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +67,14 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		0269A90F2630D89600CEE89C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0269A9102630D8B000CEE89C /* LastEvents.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		02866516262DA2A7001650D1 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +96,7 @@
 		02866521262DA2A7001650D1 /* SportsApp */ = {
 			isa = PBXGroup;
 			children = (
+				0269A90F2630D89600CEE89C /* Models */,
 				0249F1FE26307303006418F0 /* Networking */,
 				02866522262DA2A7001650D1 /* AppDelegate.swift */,
 				02866524262DA2A7001650D1 /* SceneDelegate.swift */,
@@ -95,6 +110,8 @@
 				0286653F262DA945001650D1 /* FavouriteViewController.swift */,
 				026D2038262FAFA60081DC38 /* AllSportsModel.swift */,
 				026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */,
+				0269A90C2630D68100CEE89C /* LeagueEventsViewController.swift */,
+				0269A9142630DE8600CEE89C /* LastEventesTableViewCell.swift */,
 			);
 			path = SportsApp;
 			sourceTree = "<group>";
@@ -232,10 +249,12 @@
 			files = (
 				0286653D262DA91A001650D1 /* HomeViewController.swift in Sources */,
 				02866527262DA2A7001650D1 /* ViewController.swift in Sources */,
+				0269A90D2630D68100CEE89C /* LeagueEventsViewController.swift in Sources */,
 				026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */,
-				0249F20026307338006418F0 /* Networking.swift in Sources */,
 				02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */,
+				0269A9152630DE8600CEE89C /* LastEventesTableViewCell.swift in Sources */,
 				0286652D262DA2A8001650D1 /* SportsApp.xcdatamodeld in Sources */,
+				0269A9112630D8B000CEE89C /* LastEvents.swift in Sources */,
 				02866540262DA945001650D1 /* FavouriteViewController.swift in Sources */,
 				02866525262DA2A7001650D1 /* SceneDelegate.swift in Sources */,
 				026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */,
