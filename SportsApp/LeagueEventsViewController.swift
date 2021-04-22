@@ -11,7 +11,9 @@ class LeagueEventsViewController: UIViewController {
 var lastEventsArray = [DatumLastEvents]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa2", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
         // Do any additional setup after loading the view.
     }
     
@@ -30,7 +32,13 @@ extension LeagueEventsViewController : UITableViewDelegate , UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! LastEventesTableViewCell
+        cell.countLabelView1.text = "2"
+        cell.countLabelView2.text = "3"
+        cell.imageView1.image = UIImage(named: "1")
+        cell.view1.layer.cornerRadius = 20.0
+        cell.imageViw2.image = UIImage(named: "1")
+        cell.view2.layer.cornerRadius = 20.0
         return cell
     }
 
