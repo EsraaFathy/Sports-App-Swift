@@ -8,13 +8,38 @@
 import UIKit
 
 class LeagueEventsViewController: UIViewController {
-var lastEventsArray = [DatumLastEvents]()
+    @IBOutlet weak var upcommingCollectionView: UICollectionView!
+    
+    @IBOutlet weak var teamsCollectionView: UICollectionView!
+    var lastEventsArray = [DatumLastEvents]()
+    var upcommingEventsArray = [DatumLastEvents]()
+    var teams = [String]()
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.upcommingCollectionView.delegate = self
+        self.upcommingCollectionView.dataSource = self
+        self.teamsCollectionView.delegate = self
+        self.teamsCollectionView.dataSource = self
+        
         lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
         lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
         lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa2", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        // Do any additional setup after loading the view.
+
+        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa2", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa2", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        
+        teams.append("1")
+        teams.append("1")
+        teams.append("1")
+        teams.append("1")
+        teams.append("1")
     }
     
 }
@@ -52,4 +77,47 @@ extension LeagueEventsViewController : UITableViewDelegate , UITableViewDataSour
     func numberOfSections(in tableView: UITableView) -> Int {
         1
     }
+}
+
+
+extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == upcommingCollectionView {
+            return upcommingEventsArray.count
+        }else{
+            return teams.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == upcommingCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellh1", for: indexPath as IndexPath) as! UpCommingCollectionViewCell
+            cell.labelCounter1.text = "2"
+            cell.labelCounter2.text = "3"
+            cell.imageView1.image = UIImage(named: "1")
+            cell.view1.layer.cornerRadius = 20.0
+            cell.imageView2.image = UIImage(named: "1")
+            cell.view2.layer.cornerRadius = 20.0
+            return cell
+        }else{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellh2", for: indexPath as IndexPath) as! TeamsCollectionViewCell
+            cell.teamImageViw.image = UIImage(named: "1")
+            return cell
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        if collectionView == upcommingCollectionView {
+            return CGSize(width: 300, height: 180)
+        }else{
+            return CGSize(width: 185, height: 144)
+        }
+    
+    
+}
 }
