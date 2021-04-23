@@ -10,6 +10,7 @@ import UIKit
 class LeagueEventsViewController: UIViewController {
     @IBOutlet weak var upcommingCollectionView: UICollectionView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
     var lastEventsArray = [DatumLastEvents]()
     var upcommingEventsArray = [DatumLastEvents]()
@@ -23,6 +24,13 @@ class LeagueEventsViewController: UIViewController {
         self.upcommingCollectionView.dataSource = self
         self.teamsCollectionView.delegate = self
         self.teamsCollectionView.dataSource = self
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        let screenHeight = screenRect.size.height
+        self.scrollView.contentSize = CGSize(width: screenWidth, height: 950)
+        self.scrollView.frame = CGRect(x: 0, y: 70, width: screenWidth, height: screenHeight)
+               scrollView.backgroundColor = UIColor.clear
+               //view.addSubview(scrollView)
         
         lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
         lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
@@ -117,7 +125,23 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
         }else{
             return CGSize(width: 185, height: 144)
         }
+    }
+    func collectionView(_ collectionView: UICollectionView,
+                         layout collectionViewLayout: UICollectionViewLayout,
+                         referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width, height: 123) // you can change sizing here
+    }
+    
     
     
 }
+func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    
+    if (kind == UICollectionView.elementKindSectionHeader) {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CartHeaderCollectionReusableView", for: indexPath)
+        // Customize headerView here
+        headerView.largeContentTitle = "esraa"
+        return headerView
+    }
+    fatalError()
 }
