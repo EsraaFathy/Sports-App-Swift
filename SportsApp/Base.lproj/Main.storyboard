@@ -35,7 +35,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1296" y="805"/>
+            <point key="canvasLocation" x="1161" y="892"/>
         </scene>
         <!--League Events View Controller-->
         <scene sceneID="bcy-ZA-GdT">
@@ -302,11 +302,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="G1P-mb-w9O">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="Uh8-NE-wxD"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="heart" catalog="system" id="Uh8-NE-wxD">
+                            <connections>
+                                <action selector="addToFavourite:" destination="qxn-Ia-eCA" id="LyE-Qw-aG5"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="950"/>
                     <connections>
-                        <outlet property="addToFafourite" destination="Uh8-NE-wxD" id="eOY-UC-C40"/>
                         <outlet property="lastEventsTableView" destination="c0X-ET-bL1" id="z5k-Ck-wGm"/>
                         <outlet property="scrollView" destination="iDI-Bl-ysc" id="2dc-WR-ttA"/>
                         <outlet property="teamsCollectionView" destination="Soa-Hi-lT6" id="H3g-Fd-Icq"/>
@@ -315,7 +318,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EN4-qR-fcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2231.8840579710145" y="804.61956521739137"/>
+            <point key="canvasLocation" x="2045" y="892"/>
         </scene>
         <!--Home-->
         <scene sceneID="FMo-lk-o0k">
@@ -376,11 +379,12 @@
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="fVL-8B-OG0"/>
                     <connections>
                         <outlet property="collectionView" destination="DJU-Ku-8mi" id="xDM-EG-DJO"/>
+                        <segue destination="BYZ-38-t0r" kind="push" identifier="navHome" id="Q28-W5-Nsy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7U1-b1-Qgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3433.3333333333335" y="423.91304347826087"/>
+            <point key="canvasLocation" x="1161" y="59"/>
         </scene>
         <!--Favourite-->
         <scene sceneID="Ws4-ec-zJD">
@@ -396,12 +400,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVr-1h-tRG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1620" y="-250"/>
+            <point key="canvasLocation" x="2123" y="-531"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ugU-Lf-Fpc">
             <objects>
                 <tabBarController id="csN-1H-bOa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Ney-Ut-MUI"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9aD-8t-Cml">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -414,7 +419,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="la9-rW-9Fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="54"/>
+            <point key="canvasLocation" x="-10" y="-341"/>
         </scene>
         <!--Item-->
         <scene sceneID="9B5-FE-ZXG">
@@ -428,12 +433,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="NYJ-85-iZs"/>
+                        <segue destination="csN-1H-bOa" kind="relationship" relationship="rootViewController" id="Bbh-wd-KMi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVE-NV-ZWC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="805"/>
+            <point key="canvasLocation" x="-946" y="-366"/>
         </scene>
     </scenes>
     <resources>

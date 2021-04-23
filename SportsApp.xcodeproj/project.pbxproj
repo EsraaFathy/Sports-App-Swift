@@ -86,6 +86,7 @@
 		0269A90F2630D89600CEE89C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				026D2038262FAFA60081DC38 /* AllSportsModel.swift */,
 				0269AA3F26325E3F00CEE89C /* UpCommingModel */,
 				0269AA21263245CA00CEE89C /* LastEventModel */,
 				0269AA20263245C000CEE89C /* TeamsModel */,
@@ -96,6 +97,7 @@
 		0269AA0626322C4E00CEE89C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0269AA4926328C8E00CEE89C /* HomeViewController */,
 				0269AA0726322C5B00CEE89C /* LeagueEvents */,
 			);
 			path = Views;
@@ -140,6 +142,15 @@
 			path = UpCommingModel;
 			sourceTree = "<group>";
 		};
+		0269AA4926328C8E00CEE89C /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */,
+				0286653C262DA91A001650D1 /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		02866516262DA2A7001650D1 = {
 			isa = PBXGroup;
 			children = (
@@ -172,10 +183,7 @@
 				02866530262DA2B8001650D1 /* LaunchScreen.storyboard */,
 				02866533262DA2B8001650D1 /* Info.plist */,
 				0286652B262DA2A8001650D1 /* SportsApp.xcdatamodeld */,
-				0286653C262DA91A001650D1 /* HomeViewController.swift */,
 				0286653F262DA945001650D1 /* FavouriteViewController.swift */,
-				026D2038262FAFA60081DC38 /* AllSportsModel.swift */,
-				026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */,
 			);
 			path = SportsApp;
 			sourceTree = "<group>";

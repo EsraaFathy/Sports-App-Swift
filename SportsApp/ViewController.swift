@@ -22,7 +22,7 @@ class ViewController: UIViewController {
         }
 
     @IBAction func navigate(_ sender: Any) {
-       // self.performSegue(withIdentifier: "nav", sender: self)
+       // self.performSewithIdentifiergue(: "nav", sender: self)
     }
 }
 

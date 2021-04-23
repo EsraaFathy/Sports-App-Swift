@@ -43,6 +43,19 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("segue prepared called")
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "navHome", sender: nil)
+        print("pressed")
+
+    }
+//    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+////        let cell = collectionView.cellForRowAtIndexPath(indexPath)
+////        collectionView.deselectRowAtIndexPath(indexPath, animated: true)
+//        print("item selected\(indexPath.row)")
+//        performSegue(withIdentifier: "navHome", sender: self)
+//
+//    }
 
 }
 
@@ -78,4 +91,6 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let screenHeight = screenRect.size.height
         return CGSize(width: screenWidth/3, height: 160)
     }
+    
+    
 }

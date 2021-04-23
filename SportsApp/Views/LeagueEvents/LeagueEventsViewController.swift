@@ -19,10 +19,10 @@ class LeagueEventsViewController: UIViewController {
     var lastEventsArray = [Events]()
     var upcommingEventsArray = [UpCommingEvents]()
     var teams = [Teams]()
-
-    @IBOutlet weak var addToFafourite: UIBarButtonItem!
     
-
+    @IBAction func addToFavourite(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.upcommingCollectionView.delegate = self
@@ -63,9 +63,12 @@ extension LeagueEventsViewController : UITableViewDelegate , UITableViewDataSour
         cell.countLabelView2.text = lastEventsArray[indexPath.row].intAwayScore
         cell.dateLabelView.text = lastEventsArray[indexPath.row].dateEvent
         let teamsPics = self.getTeamPic(teamOneId: lastEventsArray[indexPath.row].idHomeTeam!, teamTwoId: lastEventsArray[indexPath.row].idAwayTeam!, teams: teams)
-        cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "1"))
+        cell.imageView1.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "placeholder"))
         cell.view1.layer.cornerRadius = 20.0
-        cell.imageViw2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "1"))
+        cell.imageViw2.sd_imageIndicator = SDWebImageActivityIndicator.gray
+
+        cell.imageViw2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "placeholder"))
         cell.view2.layer.cornerRadius = 20.0
         return cell
     }
@@ -101,15 +104,18 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
             cell.labelCounter2.text = upcommingEventsArray[indexPath.row].intAwayScore
             cell.dateLabeel.text = upcommingEventsArray[indexPath.row].dateEvent
             let teamsPics = self.getTeamPic(teamOneId: upcommingEventsArray[indexPath.row].idHomeTeam!, teamTwoId: upcommingEventsArray[indexPath.row].idAwayTeam!, teams: teams)
-            cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "1"))
+            cell.imageView1.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "placeholder"))
             cell.view1.layer.cornerRadius = 20.0
-            cell.imageView2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "1"))
+            cell.imageView2.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cell.imageView2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "placeholder"))
             cell.view1.layer.cornerRadius = 20.0
             cell.view2.layer.cornerRadius = 20.0
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellh2", for: indexPath as IndexPath) as! TeamsCollectionViewCell
-            cell.teamImageViw!.sd_setImage(with: URL(string: teams[indexPath.row].strTeamBadge!), placeholderImage: UIImage(named: "1"))
+            cell.teamImageViw.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cell.teamImageViw!.sd_setImage(with: URL(string: teams[indexPath.row].strTeamBadge!), placeholderImage: UIImage(named: "placeholder"))
             cell.backGroundView.layer.cornerRadius = 55.0
             return cell
         }
@@ -201,5 +207,9 @@ extension LeagueEventsViewController{
             }
             return teamspics
         }
+}
+
+extension LeagueEventsViewController{
+    
 }
 
