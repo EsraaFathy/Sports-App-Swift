@@ -11,6 +11,7 @@ import SDWebImage
 
 class LeagueEventsViewController: UIViewController {
     
+    var id = ""
     @IBOutlet weak var lastEventsTableView: UITableView!
     @IBOutlet weak var upcommingCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -19,7 +20,8 @@ class LeagueEventsViewController: UIViewController {
     var upcommingEventsArray = [UpCommingEvents]()
     var teams = [Teams]()
 
-
+    @IBOutlet weak var addToFafourite: UIBarButtonItem!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class LeagueEventsViewController: UIViewController {
         scrollView.backgroundColor = UIColor.clear
 
        
-        self.feachTeams(LeagueId: "4328")
+        self.feachTeams(LeagueId: id)
     }
     
 }
@@ -55,6 +57,8 @@ extension LeagueEventsViewController : UITableViewDelegate , UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! LastEventesTableViewCell
+        
+        self.title = lastEventsArray[indexPath.row].strLeague
         cell.countLabelView1.text = lastEventsArray[indexPath.row].intHomeScore
         cell.countLabelView2.text = lastEventsArray[indexPath.row].intAwayScore
         cell.dateLabelView.text = lastEventsArray[indexPath.row].dateEvent
@@ -117,7 +121,7 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == upcommingCollectionView {
-            return CGSize(width: 300, height: 180)
+            return CGSize(width: 320, height: 180)
         }else{
             return CGSize(width: 185, height: 110)
         }
