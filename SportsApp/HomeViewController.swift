@@ -65,10 +65,7 @@ extension HomeViewController {
             case .failure(let error):
                 print("Request failed with error: \(error)")
             }
-        }
-
-//    }
-    
+        }    
   }
     
 }

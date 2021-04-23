@@ -6,15 +6,18 @@
 //
 
 import UIKit
+import Alamofire
+import SDWebImage
 
 class LeagueEventsViewController: UIViewController {
-    @IBOutlet weak var upcommingCollectionView: UICollectionView!
     
+    @IBOutlet weak var lastEventsTableView: UITableView!
+    @IBOutlet weak var upcommingCollectionView: UICollectionView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var teamsCollectionView: UICollectionView!
-    var lastEventsArray = [DatumLastEvents]()
-    var upcommingEventsArray = [DatumLastEvents]()
-    var teams = [String]()
+    var lastEventsArray = [Events]()
+    var upcommingEventsArray = [UpCommingEvents]()
+    var teams = [Teams]()
 
 
 
@@ -24,30 +27,16 @@ class LeagueEventsViewController: UIViewController {
         self.upcommingCollectionView.dataSource = self
         self.teamsCollectionView.delegate = self
         self.teamsCollectionView.dataSource = self
+        
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         let screenHeight = screenRect.size.height
-        self.scrollView.contentSize = CGSize(width: screenWidth, height: 950)
+        self.scrollView.contentSize = CGSize(width: screenWidth, height: 1000)
         self.scrollView.frame = CGRect(x: 0, y: 70, width: screenWidth, height: screenHeight)
-               scrollView.backgroundColor = UIColor.clear
-               //view.addSubview(scrollView)
-        
-        lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        lastEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa2", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
+        scrollView.backgroundColor = UIColor.clear
 
-        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa2", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa1", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        upcommingEventsArray.append(DatumLastEvents(id: 1, employeeName: "esraa2", employeeSalary: 2, employeeAge: 3, profileImage: "1"))
-        
-        teams.append("1")
-        teams.append("1")
-        teams.append("1")
-        teams.append("1")
-        teams.append("1")
+       
+        self.feachTeams(LeagueId: "4328")
     }
     
 }
@@ -66,11 +55,13 @@ extension LeagueEventsViewController : UITableViewDelegate , UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! LastEventesTableViewCell
-        cell.countLabelView1.text = "2"
-        cell.countLabelView2.text = "3"
-        cell.imageView1.image = UIImage(named: "1")
+        cell.countLabelView1.text = lastEventsArray[indexPath.row].intHomeScore
+        cell.countLabelView2.text = lastEventsArray[indexPath.row].intAwayScore
+        cell.dateLabelView.text = lastEventsArray[indexPath.row].dateEvent
+        let teamsPics = self.getTeamPic(teamOneId: lastEventsArray[indexPath.row].idHomeTeam!, teamTwoId: lastEventsArray[indexPath.row].idAwayTeam!, teams: teams)
+        cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "1"))
         cell.view1.layer.cornerRadius = 20.0
-        cell.imageViw2.image = UIImage(named: "1")
+        cell.imageViw2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "1"))
         cell.view2.layer.cornerRadius = 20.0
         return cell
     }
@@ -94,6 +85,7 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
         if collectionView == upcommingCollectionView {
             return upcommingEventsArray.count
         }else{
+            print(teams.count)
             return teams.count
         }
     }
@@ -101,16 +93,20 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == upcommingCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellh1", for: indexPath as IndexPath) as! UpCommingCollectionViewCell
-            cell.labelCounter1.text = "2"
-            cell.labelCounter2.text = "3"
-            cell.imageView1.image = UIImage(named: "1")
+            cell.labelCounter1.text = upcommingEventsArray[indexPath.row].intHomeScore
+            cell.labelCounter2.text = upcommingEventsArray[indexPath.row].intAwayScore
+            cell.dateLabeel.text = upcommingEventsArray[indexPath.row].dateEvent
+            let teamsPics = self.getTeamPic(teamOneId: upcommingEventsArray[indexPath.row].idHomeTeam!, teamTwoId: upcommingEventsArray[indexPath.row].idAwayTeam!, teams: teams)
+            cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "1"))
             cell.view1.layer.cornerRadius = 20.0
-            cell.imageView2.image = UIImage(named: "1")
+            cell.imageView2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "1"))
+            cell.view1.layer.cornerRadius = 20.0
             cell.view2.layer.cornerRadius = 20.0
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellh2", for: indexPath as IndexPath) as! TeamsCollectionViewCell
-            cell.teamImageViw.image = UIImage(named: "1")
+            cell.teamImageViw!.sd_setImage(with: URL(string: teams[indexPath.row].strTeamBadge!), placeholderImage: UIImage(named: "1"))
+            cell.backGroundView.layer.cornerRadius = 55.0
             return cell
         }
     }
@@ -123,25 +119,83 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
         if collectionView == upcommingCollectionView {
             return CGSize(width: 300, height: 180)
         }else{
-            return CGSize(width: 185, height: 144)
+            return CGSize(width: 185, height: 110)
         }
     }
-    func collectionView(_ collectionView: UICollectionView,
-                         layout collectionViewLayout: UICollectionViewLayout,
-                         referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 123) // you can change sizing here
+}
+
+//servies
+extension LeagueEventsViewController{
+    func fetchLastEvents(leagueId id:String) {
+          let url = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=\(id)"
+            AF.request(url)
+                .validate()
+                .responseDecodable(of: LastAllEvents.self) { (response) in
+                    switch response.result {
+                    case .success( _):
+                        guard let lastevents = response.value else { return }
+                        self.lastEventsArray = lastevents.events!
+                        self.lastEventsTableView.reloadData()
+                    case .failure(let error):
+                        print(error)
+                        break
+                    }
+        }
+    }
+    
+    
+    func feachTeams(LeagueId id:String){
+        //https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328
+        let url = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=\(id)"
+        AF.request(url)
+            .validate()
+            .responseDecodable(of: TeamsClassModel.self) { (response) in
+                switch response.result {
+                case .success( _):
+                    guard let teamsResponse = response.value else { return }
+                    self.teams = teamsResponse.teams!
+                    self.feachUpComming(LeagueId: id)
+                    self.fetchLastEvents(leagueId: id)
+                    self.teamsCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+    }
+    }
+    
+    
+    func feachUpComming(LeagueId id:String){
+        //https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=4328&s=2020-2021
+        let url = "https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=\(id)&s=2020-2021"
+        AF.request(url)
+            .validate()
+            .responseDecodable(of: UpCommingEventEntity.self) { (response) in
+                switch response.result {
+                case .success( _):
+                    guard let teamsResponse = response.value else { return }
+                    self.upcommingEventsArray = teamsResponse.events!
+                    self.upcommingCollectionView.reloadData()
+                case .failure(let error):
+                    print(error)
+                    break
+                }
+    }
     }
     
     
     
+    func getTeamPic(teamOneId:String,teamTwoId:String,teams:[Teams]) -> [String] {
+            var teamspics=["",""]
+            for item in teams{
+                if teamOneId==item.idTeam {
+                    teamspics[0]=item.strTeamBadge!
+                }
+                if teamTwoId==item.idTeam {
+                    teamspics[1]=item.strTeamBadge!
+                }
+            }
+            return teamspics
+        }
 }
-func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    
-    if (kind == UICollectionView.elementKindSectionHeader) {
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CartHeaderCollectionReusableView", for: indexPath)
-        // Customize headerView here
-        headerView.largeContentTitle = "esraa"
-        return headerView
-    }
-    fatalError()
-}
+

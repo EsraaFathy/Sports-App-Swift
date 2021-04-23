@@ -10,4 +10,5 @@ import UIKit
 class TeamsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var teamImageViw: UIImageView!
+    @IBOutlet weak var backGroundView: UIView!
 }
