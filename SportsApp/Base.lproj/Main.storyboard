@@ -310,6 +310,7 @@
                     </navigationItem>
                     <size key="freeformSize" width="414" height="950"/>
                     <connections>
+                        <outlet property="buttonImage" destination="Uh8-NE-wxD" id="g77-cO-amw"/>
                         <outlet property="lastEventsTableView" destination="c0X-ET-bL1" id="z5k-Ck-wGm"/>
                         <outlet property="scrollView" destination="iDI-Bl-ysc" id="2dc-WR-ttA"/>
                         <outlet property="teamsCollectionView" destination="Soa-Hi-lT6" id="H3g-Fd-Icq"/>

@@ -8,9 +8,11 @@
 import UIKit
 import Alamofire
 import SDWebImage
+import CoreData
 
 class LeagueEventsViewController: UIViewController {
     
+    @IBOutlet weak var buttonImage: UIBarButtonItem!
     var id = ""
     @IBOutlet weak var lastEventsTableView: UITableView!
     @IBOutlet weak var upcommingCollectionView: UICollectionView!
@@ -21,6 +23,27 @@ class LeagueEventsViewController: UIViewController {
     var teams = [Teams]()
     
     @IBAction func addToFavourite(_ sender: Any) {
+//         let image = UIImage(named: "1")
+//        let data = image!.pngData()!
+
+        let image = (buttonImage.image?.pngData())! as Data
+//        let data = image?.pngData()
+       // let data = image?.jpegData(compressionQuality: 0.9)
+       // let uiImage: UIImage = UIImage(data: imageData)
+        //let data = image!.pngData()!
+
+        //To load: let image = UIImage(data: data)
+        let appDeleget = UIApplication.shared.delegate as! AppDelegate
+        let cont = appDeleget.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "FavouriteCoreData", in: cont)
+        let m = NSManagedObject(entity: entity!, insertInto: cont)
+        let model = FavoriteModelCoreData(Title: "title", Image: image, Youtube: "youtube link", ID: 123)
+        m.setValue(model.title , forKey: "title")
+        m.setValue("model.image", forKey: "image")
+        m.setValue(model.youtube, forKey: "youtube")
+        m.setValue(model.id, forKey: "id")
+        try? cont.save()
+        
         
     }
     override func viewDidLoad() {

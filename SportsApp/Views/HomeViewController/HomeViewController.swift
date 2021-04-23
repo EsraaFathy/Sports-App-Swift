@@ -22,7 +22,8 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! MYCollectionViewCell
         cell.labelView.text = dataArray[indexPath.row].strSport
         cell.imageView.layer.cornerRadius = 30.0
-        cell.imageView!.sd_setImage(with: URL(string: dataArray[indexPath.row].strSportThumb), placeholderImage: UIImage(named: "1"))
+        cell.imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        cell.imageView!.sd_setImage(with: URL(string: dataArray[indexPath.row].strSportThumb), placeholderImage: UIImage(named: "placeholder"))
 
         print(indexPath.row)
                 return cell
@@ -49,14 +50,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         print("pressed")
 
     }
-//    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-////        let cell = collectionView.cellForRowAtIndexPath(indexPath)
-////        collectionView.deselectRowAtIndexPath(indexPath, animated: true)
-//        print("item selected\(indexPath.row)")
-//        performSegue(withIdentifier: "navHome", sender: self)
-//
-//    }
-
 }
 
 extension HomeViewController {

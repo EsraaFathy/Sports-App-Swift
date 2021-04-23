@@ -18,6 +18,7 @@
 		0269AA3C2632486600CEE89C /* LastEventFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA3B2632486600CEE89C /* LastEventFile.swift */; };
 		0269AA4226325E6C00CEE89C /* UpCommingEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA4026325E6C00CEE89C /* UpCommingEvents.swift */; };
 		0269AA4326325E6C00CEE89C /* UpComming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA4126325E6C00CEE89C /* UpComming.swift */; };
+		0269AA4C26335D9700CEE89C /* FavoriteModelCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */; };
 		026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2038262FAFA60081DC38 /* AllSportsModel.swift */; };
 		026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
@@ -45,6 +46,7 @@
 		0269AA3B2632486600CEE89C /* LastEventFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastEventFile.swift; sourceTree = "<group>"; };
 		0269AA4026325E6C00CEE89C /* UpCommingEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpCommingEvents.swift; path = ../../../../../Downloads/codegen_608223bc22193/UpCommingEvents.swift; sourceTree = "<group>"; };
 		0269AA4126325E6C00CEE89C /* UpComming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpComming.swift; path = ../../../../../Downloads/codegen_608223bc22193/UpComming.swift; sourceTree = "<group>"; };
+		0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModelCoreData.swift; sourceTree = "<group>"; };
 		026D2038262FAFA60081DC38 /* AllSportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsModel.swift; sourceTree = "<group>"; };
 		026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYCollectionViewCell.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +92,7 @@
 				0269AA3F26325E3F00CEE89C /* UpCommingModel */,
 				0269AA21263245CA00CEE89C /* LastEventModel */,
 				0269AA20263245C000CEE89C /* TeamsModel */,
+				0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				0269AA3C2632486600CEE89C /* LastEventFile.swift in Sources */,
 				02866525262DA2A7001650D1 /* SceneDelegate.swift in Sources */,
 				0269AA262632460D00CEE89C /* Json4Swift_Base.swift in Sources */,
+				0269AA4C26335D9700CEE89C /* FavoriteModelCoreData.swift in Sources */,
 				0269A920263111EE00CEE89C /* TeamsCollectionViewCell.swift in Sources */,
 				0269A91D263111BB00CEE89C /* UpCommingCollectionViewCell.swift in Sources */,
 				0269AA4326325E6C00CEE89C /* UpComming.swift in Sources */,
