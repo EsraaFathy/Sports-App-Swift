@@ -23,6 +23,7 @@ class LeagueEventsViewController: UIViewController {
     var teams = [Teams]()
     var arrayOfFafourite = [FavoriteModelCoreData]()
     var flag = false
+    var teamID = ""
     
     @IBAction func addToFavourite(_ sender: Any) {
 //         let image = UIImage(named: "1")
@@ -161,6 +162,22 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
         }else{
             return CGSize(width: 185, height: 110)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "teamsSeague" {
+//            let a = segue.destination as! // class TeamsDetails
+//            a.id = teamID
+//            }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == teamsCollectionView {
+            self.teamID = teams[indexPath.row].idTeam!
+            // self.performSegue(withIdentifier: "navHome", sender: nil)
+        }
+        print("pressed")
+
     }
 }
 
