@@ -20,6 +20,7 @@
 		0269AA4326325E6C00CEE89C /* UpComming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA4126325E6C00CEE89C /* UpComming.swift */; };
 		0269AA4C26335D9700CEE89C /* FavoriteModelCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */; };
 		0269AA5126336F5500CEE89C /* SportsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA4F26336F5500CEE89C /* SportsApp.xcdatamodeld */; };
+		0269AA582633AC6100CEE89C /* FavouriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA572633AC6100CEE89C /* FavouriteTableViewCell.swift */; };
 		026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2038262FAFA60081DC38 /* AllSportsModel.swift */; };
 		026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
@@ -48,6 +49,7 @@
 		0269AA4126325E6C00CEE89C /* UpComming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpComming.swift; path = ../../../../../Downloads/codegen_608223bc22193/UpComming.swift; sourceTree = "<group>"; };
 		0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModelCoreData.swift; sourceTree = "<group>"; };
 		0269AA5026336F5500CEE89C /* SportsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SportsApp.xcdatamodel; sourceTree = "<group>"; };
+		0269AA572633AC6100CEE89C /* FavouriteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewCell.swift; sourceTree = "<group>"; };
 		026D2038262FAFA60081DC38 /* AllSportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsModel.swift; sourceTree = "<group>"; };
 		026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYCollectionViewCell.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0286653F262DA945001650D1 /* FavouriteViewController.swift */,
+				0269AA572633AC6100CEE89C /* FavouriteTableViewCell.swift */,
 			);
 			path = FavouriteViewController;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				0269AA272632460D00CEE89C /* Teams.swift in Sources */,
 				0269AA5126336F5500CEE89C /* SportsApp.xcdatamodeld in Sources */,
 				0269AA0D26322CC600CEE89C /* HeaderCollectionReusableView.swift in Sources */,
+				0269AA582633AC6100CEE89C /* FavouriteTableViewCell.swift in Sources */,
 				0286653D262DA91A001650D1 /* HomeViewController.swift in Sources */,
 				02866527262DA2A7001650D1 /* ViewController.swift in Sources */,
 				0269A90D2630D68100CEE89C /* LeagueEventsViewController.swift in Sources */,

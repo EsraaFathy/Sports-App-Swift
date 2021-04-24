@@ -328,7 +328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EN4-qR-fcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2045" y="892"/>
+            <point key="canvasLocation" x="2630" y="465"/>
         </scene>
         <!--Home-->
         <scene sceneID="FMo-lk-o0k">
@@ -338,9 +338,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CJd-TQ-aCY">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CJd-TQ-aCY">
                                 <rect key="frame" x="0.0" y="44" width="414" height="164"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.069541178643703461" green="0.19431370496749878" blue="0.051444403827190399" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DJU-Ku-8mi">
@@ -361,11 +360,11 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bLb-E4-4MU">
-                                                    <rect key="frame" x="11" y="20" width="144" height="97"/>
+                                                    <rect key="frame" x="0.0" y="4" width="175" height="117"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs1-2C-NRW">
-                                                    <rect key="frame" x="19" y="125" width="135" height="27"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hs1-2C-NRW">
+                                                    <rect key="frame" x="19" y="131" width="135" height="27"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="highlightedColor"/>
@@ -385,10 +384,14 @@
                         <viewLayoutGuide key="safeArea" id="nja-pJ-pi7"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CJd-TQ-aCY" firstAttribute="trailing" secondItem="nja-pJ-pi7" secondAttribute="trailing" id="9xE-wF-WiK"/>
+                            <constraint firstItem="CJd-TQ-aCY" firstAttribute="top" secondItem="nja-pJ-pi7" secondAttribute="top" id="FDb-p6-Czg"/>
                             <constraint firstItem="nja-pJ-pi7" firstAttribute="trailing" secondItem="DJU-Ku-8mi" secondAttribute="trailing" constant="20" id="TW6-5Q-0Gj"/>
                             <constraint firstItem="DJU-Ku-8mi" firstAttribute="leading" secondItem="nja-pJ-pi7" secondAttribute="leading" constant="20" id="cCP-pT-K6n"/>
                             <constraint firstAttribute="bottom" secondItem="DJU-Ku-8mi" secondAttribute="bottom" constant="48" id="dHs-aa-ikz"/>
                             <constraint firstItem="DJU-Ku-8mi" firstAttribute="top" secondItem="nja-pJ-pi7" secondAttribute="top" constant="120" id="hgr-9g-lXU"/>
+                            <constraint firstItem="CJd-TQ-aCY" firstAttribute="leading" secondItem="nja-pJ-pi7" secondAttribute="leading" id="jY7-Gz-yth"/>
+                            <constraint firstItem="nja-pJ-pi7" firstAttribute="bottom" secondItem="CJd-TQ-aCY" secondAttribute="bottom" constant="479" id="xel-Oi-38G"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="fVL-8B-OG0"/>
@@ -413,7 +416,7 @@
                                 <rect key="frame" x="20" y="44" width="374" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="640-D4-Cse">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="100" id="640-D4-Cse" customClass="FavouriteTableViewCell" customModule="SportsApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="640-D4-Cse" id="Y7g-n5-jEE">
@@ -437,8 +440,17 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="leagueImage" destination="K5F-t7-f6i" id="nWe-pv-H6n"/>
+                                            <outlet property="leagueLabel" destination="C0j-b4-rI3" id="M38-Ss-Rqr"/>
+                                            <outlet property="youtubeImage" destination="oZi-fY-tmN" id="5vi-dh-NdQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="SFl-Oi-216" id="6CZ-xH-NlH"/>
+                                    <outlet property="delegate" destination="SFl-Oi-216" id="tZK-EL-h19"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="GS1-L6-n79"/>
@@ -451,6 +463,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favourite" image="heart" catalog="system" id="nJM-gE-bI4"/>
+                    <connections>
+                        <outlet property="tableView" destination="nSj-GJ-EGw" id="GGV-5w-AN3"/>
+                        <segue destination="qxn-Ia-eCA" kind="push" identifier="favL" id="ev6-Cf-jqM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVr-1h-tRG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -495,6 +511,9 @@
             <point key="canvasLocation" x="-981" y="-342"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ev6-Cf-jqM"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="ff" width="24" height="24"/>
         <image name="heart" catalog="system" width="128" height="109"/>

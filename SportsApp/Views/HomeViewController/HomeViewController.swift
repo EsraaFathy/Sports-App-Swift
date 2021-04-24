@@ -21,9 +21,10 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath as IndexPath) as! MYCollectionViewCell
         cell.labelView.text = dataArray[indexPath.row].strSport
-        cell.imageView.layer.cornerRadius = 30.0
+        cell.imageView.layer.cornerRadius = 100.0
         cell.imageView.sd_imageIndicator = SDWebImageActivityIndicator.gray
         cell.imageView!.sd_setImage(with: URL(string: dataArray[indexPath.row].strSportThumb), placeholderImage: UIImage(named: "placeholder"))
+        
 
         print(indexPath.row)
                 return cell
@@ -82,7 +83,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         let screenHeight = screenRect.size.height
-        return CGSize(width: screenWidth/3.25, height: 160)
+        return CGSize(width: screenWidth/3, height: 160)
     }
     
     
