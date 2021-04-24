@@ -9,6 +9,92 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Legues Table View Controller-->
+        <scene sceneID="vdD-bd-JR7">
+            <objects>
+                <tableViewController id="fz7-aw-OMP" customClass="LeguesTableViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7rb-Ye-jC1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="127" id="D5o-5Z-3Yp" customClass="legueCellViewControllerTableViewCell" customModule="SportsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="127"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D5o-5Z-3Yp" id="LEt-Jn-e7e">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FE2-av-btg">
+                                            <rect key="frame" x="30" y="40" width="77" height="47"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnl-IX-EyT">
+                                            <rect key="frame" x="135" y="40" width="178" height="47"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Oy-g8-ptT">
+                                            <rect key="frame" x="336" y="40" width="58" height="47"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="58" id="F2H-te-XeI"/>
+                                            </constraints>
+                                            <state key="normal" title="Button" image="y"/>
+                                            <connections>
+                                                <action selector="openYoutubeChannal:" destination="D5o-5Z-3Yp" eventType="touchUpInside" id="2ZQ-EZ-O8b"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="6Oy-g8-ptT" firstAttribute="leading" secondItem="Dnl-IX-EyT" secondAttribute="trailing" constant="23" id="7Kg-bY-ftM"/>
+                                        <constraint firstItem="Dnl-IX-EyT" firstAttribute="bottom" secondItem="FE2-av-btg" secondAttribute="bottom" id="HCr-rR-FYr"/>
+                                        <constraint firstAttribute="bottom" secondItem="FE2-av-btg" secondAttribute="bottom" constant="40" id="Im9-Oq-kXT"/>
+                                        <constraint firstItem="Dnl-IX-EyT" firstAttribute="top" secondItem="FE2-av-btg" secondAttribute="top" id="Iuw-n7-jJ0"/>
+                                        <constraint firstItem="Dnl-IX-EyT" firstAttribute="leading" secondItem="FE2-av-btg" secondAttribute="trailing" constant="28" id="KKW-1y-kF1"/>
+                                        <constraint firstItem="FE2-av-btg" firstAttribute="top" secondItem="LEt-Jn-e7e" secondAttribute="top" constant="40" id="Rgy-6W-lTf"/>
+                                        <constraint firstAttribute="trailing" secondItem="FE2-av-btg" secondAttribute="trailing" constant="307" id="YC0-xA-pea"/>
+                                        <constraint firstItem="FE2-av-btg" firstAttribute="leading" secondItem="LEt-Jn-e7e" secondAttribute="leading" constant="30" id="d0o-hG-m28"/>
+                                        <constraint firstItem="6Oy-g8-ptT" firstAttribute="trailing" secondItem="LEt-Jn-e7e" secondAttribute="trailingMargin" id="i4L-0t-jU4"/>
+                                        <constraint firstItem="Dnl-IX-EyT" firstAttribute="bottom" secondItem="6Oy-g8-ptT" secondAttribute="bottom" id="og5-uP-L5u"/>
+                                        <constraint firstItem="Dnl-IX-EyT" firstAttribute="top" secondItem="6Oy-g8-ptT" secondAttribute="top" id="sgq-Na-g9b"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="legueImg" destination="FE2-av-btg" id="xpO-Hj-9DZ"/>
+                                    <outlet property="titleLegueLabel" destination="Dnl-IX-EyT" id="0q0-vT-VGs"/>
+                                    <outlet property="youtubeBtn" destination="6Oy-g8-ptT" id="jUm-5o-vhE"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fz7-aw-OMP" id="qNq-vZ-FPJ"/>
+                            <outlet property="delegate" destination="fz7-aw-OMP" id="i1M-7V-3bp"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="TSU-TF-MLF"/>
+                    <connections>
+                        <segue destination="qxn-Ia-eCA" kind="push" identifier="nav" id="FEb-kf-sbb"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qns-9e-oyp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1380" y="797"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sjR-iV-IJ3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lK8-Rx-tSH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Oni-W7-Adl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VN6-aw-mlV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="347"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -24,7 +110,6 @@
                                 <state key="normal" title="Navigate"/>
                                 <connections>
                                     <action selector="navigate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NAm-Kz-BNE"/>
-                                    <segue destination="qxn-Ia-eCA" kind="push" identifier="nav" id="axN-SB-peo"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KCb-Vm-Qch">
@@ -44,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1160.8695652173915" y="891.84782608695662"/>
+            <point key="canvasLocation" x="651" y="1011"/>
         </scene>
         <!--League Events View Controller-->
         <scene sceneID="bcy-ZA-GdT">
@@ -397,7 +482,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="fVL-8B-OG0"/>
                     <connections>
                         <outlet property="collectionView" destination="DJU-Ku-8mi" id="xDM-EG-DJO"/>
-                        <segue destination="BYZ-38-t0r" kind="push" identifier="navHome" id="Q28-W5-Nsy"/>
+                        <segue destination="fz7-aw-OMP" kind="push" identifier="navHome" id="Jgc-gb-uxZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7U1-b1-Qgx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -512,12 +597,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ev6-Cf-jqM"/>
+        <segue reference="FEb-kf-sbb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="ff" width="24" height="24"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="homekit" catalog="system" width="128" height="106"/>
+        <image name="y" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

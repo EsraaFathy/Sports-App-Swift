@@ -13,6 +13,7 @@ import SDWebImage
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     @IBOutlet weak var collectionView: UICollectionView!
     var dataArray = [Sport]()
+    var sportName = ""
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         print(dataArray.count)
         return dataArray.count
@@ -43,10 +44,14 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("segue prepared called")
+        if segue.identifier == "navHome" {
+            let a = segue.destination as! LeguesTableViewController
+            a.sportName = self.sportName
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.sportName = dataArray[indexPath.row].strSport
         self.performSegue(withIdentifier: "navHome", sender: nil)
         print("pressed")
 
