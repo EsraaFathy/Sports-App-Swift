@@ -12,6 +12,7 @@ struct URLs {
     
     public static var getLeagueListURL : String = "https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?s="
 
-    
+    public static let urlSports = "https://www.thesportsdb.com/api/v1/json/1/all_sports.php"
+
     
 }

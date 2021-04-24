@@ -13,6 +13,8 @@ import SDWebImage
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var noConnectionImage: UIImageView!
+    var sportsiewModel : HomeViewModel!
+
     var dataArray = [Sport]()
     var sportName = ""
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,10 +45,18 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
+        
         if isNetworkReachable() {
-            fetchFilms()
             self.noConnectionImage.isHidden = true
             self.collectionView.isHidden = false
+            sportsiewModel = HomeViewModel()
+            sportsiewModel.bindSportViewModelToView = {
+                self.onSuccessUpdateView()
+            }
+            sportsiewModel.bindViewModelErrorToView = {
+                self.onFailUpdateView()
+            }
         }else{
             self.noConnectionImage.isHidden = false
             print("no network")
@@ -54,6 +64,29 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.collectionView.isHidden = true
         }
     }
+    
+    
+    func onSuccessUpdateView(){
+           
+        dataArray = sportsiewModel.sportData.sports
+        self.collectionView.reloadData()
+           
+       }
+       
+    func onFailUpdateView(){
+        
+       
+        let alert = UIAlertController(title: "Error", message: sportsiewModel.showError, preferredStyle: .alert)
+        
+        let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+            
+        }
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
     private let manager = NetworkReachabilityManager(host: "www.apple.com")
 
     func isNetworkReachable() -> Bool {
@@ -81,36 +114,11 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
 }
 
-extension HomeViewController {
-  func fetchFilms() {
-        let url = "https://www.thesportsdb.com/api/v1/json/1/all_sports.php"
-        AF.request(url).validate().responseJSON { response in
-            switch response.result {
-            case .success(let data):
-                let json = JSON(data)
-               let sportsData = json["sports"]
-                for s in sportsData {
-                  let aa =  s.1.dictionaryObject!["strSport"] as! String
-                    let sport = Sport(idSport: s.1.dictionaryObject!["idSport"] as! String, strSport: s.1.dictionaryObject!["strSport"] as! String, strFormat: s.1.dictionaryObject!["strFormat"] as! String, strSportThumb: s.1.dictionaryObject!["strSportThumb"] as! String, strSportThumbGreen: s.1.dictionaryObject!["strSportThumbGreen"] as! String, strSportDescription: s.1.dictionaryObject!["strSportDescription"] as! String)
-                    self.dataArray.append(sport)
-                    print(aa)
-                }
-                self.collectionView.reloadData()
-                break
-            case .failure(let error):
-                print("Request failed with error: \(error)")
-            }
-        }    
-  }
-    
-}
-
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
-        let screenHeight = screenRect.size.height
         return CGSize(width: screenWidth/3, height: 160)
     }
     

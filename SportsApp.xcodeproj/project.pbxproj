@@ -27,6 +27,8 @@
 		0269AA7226345A0900CEE89C /* LegueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA7126345A0900CEE89C /* LegueModel.swift */; };
 		0269AA7626345A2800CEE89C /* LeagueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA7526345A2800CEE89C /* LeagueService.swift */; };
 		0269AA7A26345AC300CEE89C /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA7926345AC300CEE89C /* URLs.swift */; };
+		0269AA8726347E5300CEE89C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8626347E5300CEE89C /* HomeViewModel.swift */; };
+		0269AA8A26347EA400CEE89C /* SportsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8926347EA400CEE89C /* SportsService.swift */; };
 		026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2038262FAFA60081DC38 /* AllSportsModel.swift */; };
 		026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
@@ -62,6 +64,8 @@
 		0269AA7126345A0900CEE89C /* LegueModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LegueModel.swift; sourceTree = "<group>"; };
 		0269AA7526345A2800CEE89C /* LeagueService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeagueService.swift; sourceTree = "<group>"; };
 		0269AA7926345AC300CEE89C /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		0269AA8626347E5300CEE89C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		0269AA8926347EA400CEE89C /* SportsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsService.swift; sourceTree = "<group>"; };
 		026D2038262FAFA60081DC38 /* AllSportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsModel.swift; sourceTree = "<group>"; };
 		026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYCollectionViewCell.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				0269AA6E263459E600CEE89C /* LeaguesViewModel.swift */,
+				0269AA8626347E5300CEE89C /* HomeViewModel.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				0269AA7526345A2800CEE89C /* LeagueService.swift */,
+				0269AA8926347EA400CEE89C /* SportsService.swift */,
 			);
 			path = Nerwork;
 			sourceTree = "<group>";
@@ -401,6 +407,7 @@
 			files = (
 				0269AA392632481800CEE89C /* EventsFile.swift in Sources */,
 				0269AA7A26345AC300CEE89C /* URLs.swift in Sources */,
+				0269AA8A26347EA400CEE89C /* SportsService.swift in Sources */,
 				0269AA272632460D00CEE89C /* Teams.swift in Sources */,
 				0269AA7226345A0900CEE89C /* LegueModel.swift in Sources */,
 				0269AA5126336F5500CEE89C /* SportsApp.xcdatamodeld in Sources */,
@@ -422,6 +429,7 @@
 				0269AA262632460D00CEE89C /* Json4Swift_Base.swift in Sources */,
 				0269AA4C26335D9700CEE89C /* FavoriteModelCoreData.swift in Sources */,
 				0269A920263111EE00CEE89C /* TeamsCollectionViewCell.swift in Sources */,
+				0269AA8726347E5300CEE89C /* HomeViewModel.swift in Sources */,
 				0269A91D263111BB00CEE89C /* UpCommingCollectionViewCell.swift in Sources */,
 				0269AA4326325E6C00CEE89C /* UpComming.swift in Sources */,
 				0269AA4226325E6C00CEE89C /* UpCommingEvents.swift in Sources */,
