@@ -16,6 +16,7 @@ class LeguesTableViewController: UITableViewController {
     var leagueViewModel : LeagueViewModel!
     var sportName : String = ""
     var leadueID = ""
+    var model :FavoriteModelCoreData!
     override func viewDidLoad() {
         super.viewDidLoad()
         URLs.getLeagueListURL = "https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?s=\(sportName)"
@@ -35,6 +36,10 @@ class LeguesTableViewController: UITableViewController {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.leadueID = leagues[indexPath.row].idLeague!
+        self.model = FavoriteModelCoreData(Title: leagues[indexPath.row].strLeague ?? ""
+                                           , Image: leagues[indexPath.row].strBadge ?? "",
+                                           Youtube: leagues[indexPath.row].strYoutube ?? "",
+                                           ID: leagues[indexPath.row].idLeague ?? "")
         self.performSegue(withIdentifier: "nav", sender: nil)
 
 
@@ -43,6 +48,7 @@ class LeguesTableViewController: UITableViewController {
             if segue.identifier == "nav" {
                 let a = segue.destination as! LeagueEventsViewController
                 a.id = self.leadueID
+                a.model = self.model
                 }
         }
     func onSuccessUpdateView(){
@@ -88,9 +94,12 @@ class LeguesTableViewController: UITableViewController {
             cell.youtubeBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)).isActive=true
         }
         cell.titleLegueLabel.text=leagues[indexPath.row].strLeague
-        cell.legueImg.sd_setImage(with: URL(string:leagues[indexPath.row].strBadge!),placeholderImage: UIImage(named: "1"))
+        if leagues[indexPath.row].strBadge != nil {
+            cell.legueImg.sd_imageIndicator = SDWebImageActivityIndicator.gray
+            cell.legueImg.sd_setImage(with: URL(string:leagues[indexPath.row].strBadge!),placeholderImage: UIImage(named: "placeholder"))
+                   cell.legueImg.layer.cornerRadius = 30.0
+        }
        
-               cell.legueImg.layer.cornerRadius = 30.0
 
         return cell
     }

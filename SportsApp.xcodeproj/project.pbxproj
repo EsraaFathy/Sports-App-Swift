@@ -114,8 +114,8 @@
 		0269AA0626322C4E00CEE89C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0269AA652634591400CEE89C /* Leagues */,
 				02866528262DA2A7001650D1 /* Main.storyboard */,
+				0269AA652634591400CEE89C /* Leagues */,
 				0269AA53263397A200CEE89C /* FavouriteViewController */,
 				0269AA4926328C8E00CEE89C /* HomeViewController */,
 				0269AA0726322C5B00CEE89C /* LeagueEvents */,

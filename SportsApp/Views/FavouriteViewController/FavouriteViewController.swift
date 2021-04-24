@@ -8,11 +8,13 @@
 import UIKit
 import SDWebImage
 import CoreData
+import Alamofire
 
 class FavouriteViewController: UIViewController {
     var arrayOfFafourite = [FavoriteModelCoreData]()
     var row = 1
-
+    private let manager = NetworkReachabilityManager(host: "www.apple.com")
+    
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ extension FavouriteViewController : UITableViewDelegate , UITableViewDataSource{
         }
         return cell
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -61,18 +63,26 @@ extension FavouriteViewController : UITableViewDelegate , UITableViewDataSource{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Your Code Here...
         featchCoreData()
+        
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.row = indexPath.row
-        self.performSegue(withIdentifier: "favL", sender: nil)
-
+        if isNetworkReachable() {
+            self.row = indexPath.row
+            self.performSegue(withIdentifier: "favL", sender: nil)
+        }else{
+            let alert = UIAlertController(title: "Error", message: "No Internet Connection", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "favL" {
             let a = segue.destination as! LeagueEventsViewController
             a.id = arrayOfFafourite[row].id!
             }
+    }
+    func isNetworkReachable() -> Bool {
+        return manager?.isReachable ?? false
     }
 }

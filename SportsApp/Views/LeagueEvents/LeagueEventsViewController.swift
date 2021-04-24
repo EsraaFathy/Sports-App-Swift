@@ -23,6 +23,7 @@ class LeagueEventsViewController: UIViewController {
     var teams = [Teams]()
     var arrayOfFafourite = [FavoriteModelCoreData]()
     var flag = false
+    var model : FavoriteModelCoreData!
     var teamID = ""
     
     @IBAction func addToFavourite(_ sender: Any) {
@@ -41,7 +42,7 @@ class LeagueEventsViewController: UIViewController {
         let cont = appDeleget.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "FavouriteCoreData", in: cont)
         let m = NSManagedObject(entity: entity!, insertInto: cont)
-        let model = FavoriteModelCoreData(Title: "title", Image: "https://api.androidhive.info/json/movies/3.jpg", Youtube: "youtube link", ID: id)
+//        let model = FavoriteModelCoreData(Title: "title", Image: "https://api.androidhive.info/json/movies/3.jpg", Youtube: "youtube link", ID: id)
         m.setValue(model.title , forKey: "title")
         m.setValue(model.image, forKey: "image")
         m.setValue(model.youtube, forKey: "youtube")
@@ -93,14 +94,18 @@ extension LeagueEventsViewController : UITableViewDelegate , UITableViewDataSour
         cell.countLabelView1.text = lastEventsArray[indexPath.row].intHomeScore
         cell.countLabelView2.text = lastEventsArray[indexPath.row].intAwayScore
         cell.dateLabelView.text = lastEventsArray[indexPath.row].dateEvent
-        let teamsPics = self.getTeamPic(teamOneId: lastEventsArray[indexPath.row].idHomeTeam!, teamTwoId: lastEventsArray[indexPath.row].idAwayTeam!, teams: teams)
-        cell.imageView1.sd_imageIndicator = SDWebImageActivityIndicator.gray
-        cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "placeholder"))
-        cell.view1.layer.cornerRadius = 20.0
-        cell.imageViw2.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        if lastEventsArray[indexPath.row].idHomeTeam != nil &&
+            lastEventsArray[indexPath.row].idAwayTeam != nil{
+            let teamsPics = self.getTeamPic(teamOneId: lastEventsArray[indexPath.row].idHomeTeam!, teamTwoId: lastEventsArray[indexPath.row].idAwayTeam!, teams: teams)
+                    cell.imageView1.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                    cell.imageView1.sd_setImage(with: URL(string: teamsPics[0]), placeholderImage: UIImage(named: "placeholder"))
+                    cell.view1.layer.cornerRadius = 20.0
+                    cell.imageViw2.sd_imageIndicator = SDWebImageActivityIndicator.gray
 
-        cell.imageViw2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "placeholder"))
-        cell.view2.layer.cornerRadius = 20.0
+                    cell.imageViw2.sd_setImage(with: URL(string: teamsPics[1]), placeholderImage: UIImage(named: "placeholder"))
+                    cell.view2.layer.cornerRadius = 20.0
+        }
+        
         return cell
     }
 
@@ -191,8 +196,12 @@ extension LeagueEventsViewController{
                     switch response.result {
                     case .success( _):
                         guard let lastevents = response.value else { return }
-                        self.lastEventsArray = lastevents.events!
-                        self.lastEventsTableView.reloadData()
+                        if lastevents.events != nil {
+                            self.lastEventsArray = lastevents.events!
+                                                    self.lastEventsTableView.reloadData()
+
+                        }
+                        
                     case .failure(let error):
                         print(error)
                         break
@@ -204,16 +213,21 @@ extension LeagueEventsViewController{
     func feachTeams(LeagueId id:String){
         //https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328
         let url = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=\(id)"
+        print("id.........\(id)")
         AF.request(url)
             .validate()
             .responseDecodable(of: TeamsClassModel.self) { (response) in
                 switch response.result {
                 case .success( _):
                     guard let teamsResponse = response.value else { return }
-                    self.teams = teamsResponse.teams!
-                    self.feachUpComming(LeagueId: id)
-                    self.fetchLastEvents(leagueId: id)
-                    self.teamsCollectionView.reloadData()
+                    if teamsResponse.teams != nil {
+                        self.teams = teamsResponse.teams!
+                        self.feachUpComming(LeagueId: id)
+                        self.fetchLastEvents(leagueId: id)
+                        self.teamsCollectionView.reloadData()
+                    }
+
+                    
                 case .failure(let error):
                     print(error)
                     break
@@ -231,8 +245,12 @@ extension LeagueEventsViewController{
                 switch response.result {
                 case .success( _):
                     guard let teamsResponse = response.value else { return }
-                    self.upcommingEventsArray = teamsResponse.events!
-                    self.upcommingCollectionView.reloadData()
+                    if teamsResponse.events != nil {
+                        self.upcommingEventsArray = teamsResponse.events!
+                        self.upcommingCollectionView.reloadData()
+
+                    }
+                    
                 case .failure(let error):
                     print(error)
                     break

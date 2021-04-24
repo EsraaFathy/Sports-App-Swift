@@ -12,6 +12,7 @@ import SDWebImage
 
 class HomeViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var noConnectionImage: UIImageView!
     var dataArray = [Sport]()
     var sportName = ""
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -39,10 +40,25 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         collectionView.dataSource=self
         collectionView.delegate=self
-        fetchFilms()
-
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        if isNetworkReachable() {
+            fetchFilms()
+            self.noConnectionImage.isHidden = true
+            self.collectionView.isHidden = false
+        }else{
+            self.noConnectionImage.isHidden = false
+            print("no network")
+            self.noConnectionImage.image = UIImage(named: "n")
+            self.collectionView.isHidden = true
+        }
+    }
+    private let manager = NetworkReachabilityManager(host: "www.apple.com")
+
+    func isNetworkReachable() -> Bool {
+        return manager?.isReachable ?? false
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "navHome" {
             let a = segue.destination as! LeguesTableViewController
@@ -51,9 +67,16 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.sportName = dataArray[indexPath.row].strSport
-        self.performSegue(withIdentifier: "navHome", sender: nil)
-        print("pressed")
+        if isNetworkReachable() {
+            self.sportName = dataArray[indexPath.row].strSport
+            self.performSegue(withIdentifier: "navHome", sender: nil)
+            print("pressed")
+        }else{
+            let alert = UIAlertController(title: "Error", message: "No Internet Connection", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
 
     }
 }
