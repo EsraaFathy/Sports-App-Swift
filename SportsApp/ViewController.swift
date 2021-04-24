@@ -14,10 +14,11 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBOutlet weak var textFaield: UITextField!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "nav" {
                 let a = segue.destination as! LeagueEventsViewController
-                a.id = "4328"
+                a.id = textFaield.text! as String
                 }
         }
 

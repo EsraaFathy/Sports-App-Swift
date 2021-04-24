@@ -21,29 +21,36 @@ class LeagueEventsViewController: UIViewController {
     var lastEventsArray = [Events]()
     var upcommingEventsArray = [UpCommingEvents]()
     var teams = [Teams]()
+    var arrayOfFafourite = [FavoriteModelCoreData]()
+    var flag = false
     
     @IBAction func addToFavourite(_ sender: Any) {
 //         let image = UIImage(named: "1")
 //        let data = image!.pngData()!
 
-        let image = (buttonImage.image?.pngData())! as Data
+       // let image = (buttonImage.image?.pngData())! as Data
 //        let data = image?.pngData()
        // let data = image?.jpegData(compressionQuality: 0.9)
        // let uiImage: UIImage = UIImage(data: imageData)
         //let data = image!.pngData()!
 
         //To load: let image = UIImage(data: data)
+        if flag == false {
         let appDeleget = UIApplication.shared.delegate as! AppDelegate
         let cont = appDeleget.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "FavouriteCoreData", in: cont)
         let m = NSManagedObject(entity: entity!, insertInto: cont)
-        let model = FavoriteModelCoreData(Title: "title", Image: image, Youtube: "youtube link", ID: 123)
+        let model = FavoriteModelCoreData(Title: "title", Image: "https://api.androidhive.info/json/movies/3.jpg", Youtube: "youtube link", ID: id)
         m.setValue(model.title , forKey: "title")
-        m.setValue("model.image", forKey: "image")
+        m.setValue(model.image, forKey: "image")
         m.setValue(model.youtube, forKey: "youtube")
         m.setValue(model.id, forKey: "id")
         try? cont.save()
-        
+        self.featchCoreData()
+        }else{
+            deleteFromCoreData()
+            self.featchCoreData()
+        }
         
     }
     override func viewDidLoad() {
@@ -60,7 +67,7 @@ class LeagueEventsViewController: UIViewController {
         self.scrollView.frame = CGRect(x: 0, y: 70, width: screenWidth, height: screenHeight)
         scrollView.backgroundColor = UIColor.clear
 
-       
+        self.featchCoreData()
         self.feachTeams(LeagueId: id)
     }
     
@@ -233,6 +240,53 @@ extension LeagueEventsViewController{
 }
 
 extension LeagueEventsViewController{
+    func featchCoreData(){
+        arrayOfFafourite = [FavoriteModelCoreData]()
+        var arrayfdNSManagedObject = [NSManagedObject]()
+        let appDeleget = UIApplication.shared.delegate as! AppDelegate
+        let cont = appDeleget.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCoreData")
+        do {
+            arrayfdNSManagedObject = try! cont.fetch(fetchRequest)
+            for i in arrayfdNSManagedObject {
+                let fav = FavoriteModelCoreData(Title: i.value(forKey: "title") as! String, Image: i.value(forKey: "image") as! String, Youtube: i.value(forKey: "youtube") as! String, ID: i.value(forKey: "id") as! String)
+                self.arrayOfFafourite.append(fav)
+                print(arrayOfFafourite.count)
+                if fav.id == self.id {
+                    buttonImage.image = UIImage(named: "f")
+                    self.flag = true
+                }
+            }
+        }
+    }
     
+    
+    
+    func deleteFromCoreData(){
+        arrayOfFafourite = [FavoriteModelCoreData]()
+        var arrayfdNSManagedObject = [NSManagedObject]()
+        let appDeleget = UIApplication.shared.delegate as! AppDelegate
+        let cont = appDeleget.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "FavouriteCoreData")
+        do {
+            arrayfdNSManagedObject = try! cont.fetch(fetchRequest)
+            for i in arrayfdNSManagedObject {
+                let fav = FavoriteModelCoreData(Title: i.value(forKey: "title") as! String, Image: i.value(forKey: "image") as! String, Youtube: i.value(forKey: "youtube") as! String, ID: i.value(forKey: "id") as! String)
+                self.arrayOfFafourite.append(fav)
+            }
+            for i in 0...arrayOfFafourite.count{
+                let favouriteModel = arrayOfFafourite[i]
+                if favouriteModel.id == self.id {
+                    cont.delete(arrayfdNSManagedObject[i])
+                    arrayOfFafourite.remove(at: i)
+                    self.buttonImage.image = UIImage(named: "ff")
+                    self.flag = false
+                    break
+                }
+            }
+            try? cont.save()
+        }
+
+    }
 }
 

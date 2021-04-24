@@ -8,10 +8,10 @@
 import Foundation
 class FavoriteModelCoreData{
     var title : String?
-    var image : Data?
+    var image : String?
     var youtube : String?
-    var id : Int32?
-    init(Title title : String,Image image:Data, Youtube youtube:String, ID id: Int32) {
+    var id : String?
+    init(Title title : String,Image image:String, Youtube youtube:String, ID id: String) {
         self.title=title
         self.image=image
         self.youtube=youtube

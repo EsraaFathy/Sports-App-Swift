@@ -82,7 +82,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         let screenHeight = screenRect.size.height
-        return CGSize(width: screenWidth/3, height: 160)
+        return CGSize(width: screenWidth/3.25, height: 160)
     }
     
     
