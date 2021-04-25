@@ -27,6 +27,7 @@ class LeagueEventsViewController: UIViewController {
     var teamID = ""
     
     var upCommingViewModel : UpcommingViewModel!
+    var lastEventsViewModel : LastEventsViewModel!
     
     @IBAction func addToFavourite(_ sender: Any) {
         if flag == false {
@@ -180,29 +181,19 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
 //servies
 extension LeagueEventsViewController{
     func fetchLastEvents(leagueId id:String) {
-          let url = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=\(id)"
-            AF.request(url)
-                .validate()
-                .responseDecodable(of: LastAllEvents.self) { (response) in
-                    switch response.result {
-                    case .success( _):
-                        guard let lastevents = response.value else { return }
-                        if lastevents.events != nil {
-                            self.lastEventsArray = lastevents.events!
-                                                    self.lastEventsTableView.reloadData()
-
-                        }
-                        
-                    case .failure(let error):
-                        print(error)
-                        break
-                    }
+        URLs.upLastEventsURL = "https://www.thesportsdb.com/api/v1/json/1/eventspastleague.php?id=\(id)"
+        lastEventsViewModel = LastEventsViewModel()
+        lastEventsViewModel.bindlastEventsViewModelToView = {
+            self.onSuccessLastEvents()
+        }
+        lastEventsViewModel.bindViewModelErrorToView = {
+            self.onFail()
         }
     }
     
     
     func feachTeams(LeagueId id:String){
-        //https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328
+//https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328
         let url = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=\(id)"
         print("id.........\(id)")
         AF.request(url)
@@ -218,7 +209,7 @@ extension LeagueEventsViewController{
                         self.teamsCollectionView.reloadData()
                     }
 
-                    
+
                 case .failure(let error):
                     print(error)
                     break
@@ -226,6 +217,11 @@ extension LeagueEventsViewController{
     }
     }
     
+    func onSuccessLastEvents(){
+        self.lastEventsArray = lastEventsViewModel.lastEventsData.events!
+        self.lastEventsTableView.reloadData()
+       }
+       
     
     func feachUpComming(LeagueId id:String){
         URLs.upCommingURL = "https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=\(id)&s=2020-2021"
@@ -234,7 +230,7 @@ extension LeagueEventsViewController{
             self.onSuccessUpComming()
         }
         upCommingViewModel.bindViewModelErrorToView = {
-            self.onFailUpComming()
+            self.onFail()
         }
     }
     
@@ -244,14 +240,12 @@ extension LeagueEventsViewController{
         self.upcommingCollectionView.reloadData()
        }
        
-    func onFailUpComming(){
+    func onFail(){
         let alert = UIAlertController(title: "Error", message: upCommingViewModel.showError, preferredStyle: .alert)
         let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
         }
-        
         alert.addAction(okAction)
         self.present(alert, animated: true, completion: nil)
-        
     }
     
     func getTeamPic(teamOneId:String,teamTwoId:String,teams:[Teams]) -> [String] {

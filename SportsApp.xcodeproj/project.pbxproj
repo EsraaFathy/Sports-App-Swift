@@ -31,6 +31,8 @@
 		0269AA8A26347EA400CEE89C /* SportsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8926347EA400CEE89C /* SportsService.swift */; };
 		0269AA8D2634894000CEE89C /* UpcommingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8C2634894000CEE89C /* UpcommingViewModel.swift */; };
 		0269AA9026348A6F00CEE89C /* UpcommingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8F26348A6F00CEE89C /* UpcommingService.swift */; };
+		0269AA952635B04E00CEE89C /* LastEventsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA942635B04E00CEE89C /* LastEventsViewModel.swift */; };
+		0269AA982635B09E00CEE89C /* LastEventService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA972635B09E00CEE89C /* LastEventService.swift */; };
 		026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2038262FAFA60081DC38 /* AllSportsModel.swift */; };
 		026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
@@ -70,6 +72,8 @@
 		0269AA8926347EA400CEE89C /* SportsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsService.swift; sourceTree = "<group>"; };
 		0269AA8C2634894000CEE89C /* UpcommingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingViewModel.swift; sourceTree = "<group>"; };
 		0269AA8F26348A6F00CEE89C /* UpcommingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingService.swift; sourceTree = "<group>"; };
+		0269AA942635B04E00CEE89C /* LastEventsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastEventsViewModel.swift; sourceTree = "<group>"; };
+		0269AA972635B09E00CEE89C /* LastEventService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastEventService.swift; sourceTree = "<group>"; };
 		026D2038262FAFA60081DC38 /* AllSportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsModel.swift; sourceTree = "<group>"; };
 		026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYCollectionViewCell.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +223,7 @@
 				0269AA6E263459E600CEE89C /* LeaguesViewModel.swift */,
 				0269AA8626347E5300CEE89C /* HomeViewModel.swift */,
 				0269AA8C2634894000CEE89C /* UpcommingViewModel.swift */,
+				0269AA942635B04E00CEE89C /* LastEventsViewModel.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -229,6 +234,7 @@
 				0269AA7526345A2800CEE89C /* LeagueService.swift */,
 				0269AA8926347EA400CEE89C /* SportsService.swift */,
 				0269AA8F26348A6F00CEE89C /* UpcommingService.swift */,
+				0269AA972635B09E00CEE89C /* LastEventService.swift */,
 			);
 			path = Nerwork;
 			sourceTree = "<group>";
@@ -413,6 +419,7 @@
 			files = (
 				0269AA392632481800CEE89C /* EventsFile.swift in Sources */,
 				0269AA7A26345AC300CEE89C /* URLs.swift in Sources */,
+				0269AA982635B09E00CEE89C /* LastEventService.swift in Sources */,
 				0269AA8A26347EA400CEE89C /* SportsService.swift in Sources */,
 				0269AA272632460D00CEE89C /* Teams.swift in Sources */,
 				0269AA7226345A0900CEE89C /* LegueModel.swift in Sources */,
@@ -420,6 +427,7 @@
 				0269AA0D26322CC600CEE89C /* HeaderCollectionReusableView.swift in Sources */,
 				0269AA582633AC6100CEE89C /* FavouriteTableViewCell.swift in Sources */,
 				0286653D262DA91A001650D1 /* HomeViewController.swift in Sources */,
+				0269AA952635B04E00CEE89C /* LastEventsViewModel.swift in Sources */,
 				02866527262DA2A7001650D1 /* ViewController.swift in Sources */,
 				0269AA692634594F00CEE89C /* legueCellViewControllerTableViewCell.swift in Sources */,
 				0269A90D2630D68100CEE89C /* LeagueEventsViewController.swift in Sources */,
