@@ -28,6 +28,7 @@ class LeagueEventsViewController: UIViewController {
     
     var upCommingViewModel : UpcommingViewModel!
     var lastEventsViewModel : LastEventsViewModel!
+    var teamsViewModel : TeamsViewModel!
     
     @IBAction func addToFavourite(_ sender: Any) {
         if flag == false {
@@ -194,28 +195,21 @@ extension LeagueEventsViewController{
     
     func feachTeams(LeagueId id:String){
 //https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4328
-        let url = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=\(id)"
-        print("id.........\(id)")
-        AF.request(url)
-            .validate()
-            .responseDecodable(of: TeamsClassModel.self) { (response) in
-                switch response.result {
-                case .success( _):
-                    guard let teamsResponse = response.value else { return }
-                    if teamsResponse.teams != nil {
-                        self.teams = teamsResponse.teams!
-                        self.feachUpComming(LeagueId: id)
-                        self.fetchLastEvents(leagueId: id)
-                        self.teamsCollectionView.reloadData()
-                    }
-
-
-                case .failure(let error):
-                    print(error)
-                    break
-                }
+        URLs.teamsURL = "https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=\(id)"
+        teamsViewModel = TeamsViewModel()
+        teamsViewModel.bindTeamsDataViewModelToView = {
+            self.onSuccessTeams()
+        }
+        teamsViewModel.bindViewModelErrorToView = {
+            self.onFail()
+        }
     }
-    }
+    func onSuccessTeams(){
+        self.teams = teamsViewModel.teamsData.teams!
+        self.feachUpComming(LeagueId: id)
+        self.fetchLastEvents(leagueId: id)
+        self.teamsCollectionView.reloadData()
+       }
     
     func onSuccessLastEvents(){
         self.lastEventsArray = lastEventsViewModel.lastEventsData.events!

@@ -16,4 +16,5 @@ struct URLs {
 
     public static var upCommingURL = ""
     public static var upLastEventsURL = ""
+    public static var teamsURL = ""
 }
