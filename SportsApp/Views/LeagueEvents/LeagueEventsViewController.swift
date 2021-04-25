@@ -231,20 +231,20 @@ extension LeagueEventsViewController{
         URLs.upCommingURL = "https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=\(id)&s=2020-2021"
         upCommingViewModel = UpcommingViewModel()
         upCommingViewModel.bindUpcommingViewModelToView = {
-            self.onSuccessUpdateView()
+            self.onSuccessUpComming()
         }
         upCommingViewModel.bindViewModelErrorToView = {
-            self.onFailUpdateView()
+            self.onFailUpComming()
         }
     }
     
     
-    func onSuccessUpdateView(){
+    func onSuccessUpComming(){
         upcommingEventsArray = upCommingViewModel.UpcommingData.events!
         self.upcommingCollectionView.reloadData()
        }
        
-    func onFailUpdateView(){
+    func onFailUpComming(){
         let alert = UIAlertController(title: "Error", message: upCommingViewModel.showError, preferredStyle: .alert)
         let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
         }
