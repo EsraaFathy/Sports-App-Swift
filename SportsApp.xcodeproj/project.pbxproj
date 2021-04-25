@@ -115,18 +115,6 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		0269A90F2630D89600CEE89C /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				026D2038262FAFA60081DC38 /* AllSportsModel.swift */,
-				0269AA3F26325E3F00CEE89C /* UpCommingModel */,
-				0269AA21263245CA00CEE89C /* LastEventModel */,
-				0269AA20263245C000CEE89C /* TeamsModel */,
-				0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		0269AA0626322C4E00CEE89C /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +204,11 @@
 		0269AA6C2634597C00CEE89C /* Pojos */ = {
 			isa = PBXGroup;
 			children = (
+				0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */,
+				026D2038262FAFA60081DC38 /* AllSportsModel.swift */,
+				0269AA20263245C000CEE89C /* TeamsModel */,
+				0269AA21263245CA00CEE89C /* LastEventModel */,
+				0269AA3F26325E3F00CEE89C /* UpCommingModel */,
 				0269AA7126345A0900CEE89C /* LegueModel.swift */,
 			);
 			path = Pojos;
@@ -279,7 +272,6 @@
 				0269AA6C2634597C00CEE89C /* Pojos */,
 				0269AA6B2634597400CEE89C /* Model */,
 				0269AA0626322C4E00CEE89C /* Views */,
-				0269A90F2630D89600CEE89C /* Models */,
 				0249F1FE26307303006418F0 /* Networking */,
 				02866522262DA2A7001650D1 /* AppDelegate.swift */,
 				02866524262DA2A7001650D1 /* SceneDelegate.swift */,
