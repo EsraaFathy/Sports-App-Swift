@@ -113,8 +113,6 @@ class HomeViewController: UIViewController, UICollectionViewDataSource, UICollec
 
     }
 }
-
-
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenRect = UIScreen.main.bounds

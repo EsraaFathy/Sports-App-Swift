@@ -26,23 +26,14 @@ class LeagueEventsViewController: UIViewController {
     var model : FavoriteModelCoreData!
     var teamID = ""
     
+    var upCommingViewModel : UpcommingViewModel!
+    
     @IBAction func addToFavourite(_ sender: Any) {
-//         let image = UIImage(named: "1")
-//        let data = image!.pngData()!
-
-       // let image = (buttonImage.image?.pngData())! as Data
-//        let data = image?.pngData()
-       // let data = image?.jpegData(compressionQuality: 0.9)
-       // let uiImage: UIImage = UIImage(data: imageData)
-        //let data = image!.pngData()!
-
-        //To load: let image = UIImage(data: data)
         if flag == false {
         let appDeleget = UIApplication.shared.delegate as! AppDelegate
         let cont = appDeleget.persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "FavouriteCoreData", in: cont)
         let m = NSManagedObject(entity: entity!, insertInto: cont)
-//        let model = FavoriteModelCoreData(Title: "title", Image: "https://api.androidhive.info/json/movies/3.jpg", Youtube: "youtube link", ID: id)
         m.setValue(model.title , forKey: "title")
         m.setValue(model.image, forKey: "image")
         m.setValue(model.youtube, forKey: "youtube")
@@ -237,28 +228,31 @@ extension LeagueEventsViewController{
     
     
     func feachUpComming(LeagueId id:String){
-        //https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=4328&s=2020-2021
-        let url = "https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=\(id)&s=2020-2021"
-        AF.request(url)
-            .validate()
-            .responseDecodable(of: UpCommingEventEntity.self) { (response) in
-                switch response.result {
-                case .success( _):
-                    guard let teamsResponse = response.value else { return }
-                    if teamsResponse.events != nil {
-                        self.upcommingEventsArray = teamsResponse.events!
-                        self.upcommingCollectionView.reloadData()
-
-                    }
-                    
-                case .failure(let error):
-                    print(error)
-                    break
-                }
-    }
+        URLs.upCommingURL = "https://www.thesportsdb.com/api/v1/json/1/eventsseason.php?id=\(id)&s=2020-2021"
+        upCommingViewModel = UpcommingViewModel()
+        upCommingViewModel.bindUpcommingViewModelToView = {
+            self.onSuccessUpdateView()
+        }
+        upCommingViewModel.bindViewModelErrorToView = {
+            self.onFailUpdateView()
+        }
     }
     
     
+    func onSuccessUpdateView(){
+        upcommingEventsArray = upCommingViewModel.UpcommingData.events!
+        self.upcommingCollectionView.reloadData()
+       }
+       
+    func onFailUpdateView(){
+        let alert = UIAlertController(title: "Error", message: upCommingViewModel.showError, preferredStyle: .alert)
+        let okAction  = UIAlertAction(title: "Ok", style: .default) { (UIAlertAction) in
+        }
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
     
     func getTeamPic(teamOneId:String,teamTwoId:String,teams:[Teams]) -> [String] {
             var teamspics=["",""]

@@ -29,6 +29,8 @@
 		0269AA7A26345AC300CEE89C /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA7926345AC300CEE89C /* URLs.swift */; };
 		0269AA8726347E5300CEE89C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8626347E5300CEE89C /* HomeViewModel.swift */; };
 		0269AA8A26347EA400CEE89C /* SportsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8926347EA400CEE89C /* SportsService.swift */; };
+		0269AA8D2634894000CEE89C /* UpcommingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8C2634894000CEE89C /* UpcommingViewModel.swift */; };
+		0269AA9026348A6F00CEE89C /* UpcommingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA8F26348A6F00CEE89C /* UpcommingService.swift */; };
 		026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2038262FAFA60081DC38 /* AllSportsModel.swift */; };
 		026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
@@ -66,6 +68,8 @@
 		0269AA7926345AC300CEE89C /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		0269AA8626347E5300CEE89C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0269AA8926347EA400CEE89C /* SportsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsService.swift; sourceTree = "<group>"; };
+		0269AA8C2634894000CEE89C /* UpcommingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingViewModel.swift; sourceTree = "<group>"; };
+		0269AA8F26348A6F00CEE89C /* UpcommingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcommingService.swift; sourceTree = "<group>"; };
 		026D2038262FAFA60081DC38 /* AllSportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsModel.swift; sourceTree = "<group>"; };
 		026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYCollectionViewCell.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,6 +218,7 @@
 			children = (
 				0269AA6E263459E600CEE89C /* LeaguesViewModel.swift */,
 				0269AA8626347E5300CEE89C /* HomeViewModel.swift */,
+				0269AA8C2634894000CEE89C /* UpcommingViewModel.swift */,
 			);
 			path = ModelViews;
 			sourceTree = "<group>";
@@ -223,6 +228,7 @@
 			children = (
 				0269AA7526345A2800CEE89C /* LeagueService.swift */,
 				0269AA8926347EA400CEE89C /* SportsService.swift */,
+				0269AA8F26348A6F00CEE89C /* UpcommingService.swift */,
 			);
 			path = Nerwork;
 			sourceTree = "<group>";
@@ -420,11 +426,13 @@
 				026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */,
 				02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */,
 				0269AA6F263459E600CEE89C /* LeaguesViewModel.swift in Sources */,
+				0269AA9026348A6F00CEE89C /* UpcommingService.swift in Sources */,
 				0269AA682634594F00CEE89C /* LeguesTableViewController.swift in Sources */,
 				0269A9152630DE8600CEE89C /* LastEventesTableViewCell.swift in Sources */,
 				02866540262DA945001650D1 /* FavouriteViewController.swift in Sources */,
 				0269AA3C2632486600CEE89C /* LastEventFile.swift in Sources */,
 				02866525262DA2A7001650D1 /* SceneDelegate.swift in Sources */,
+				0269AA8D2634894000CEE89C /* UpcommingViewModel.swift in Sources */,
 				0269AA7626345A2800CEE89C /* LeagueService.swift in Sources */,
 				0269AA262632460D00CEE89C /* Json4Swift_Base.swift in Sources */,
 				0269AA4C26335D9700CEE89C /* FavoriteModelCoreData.swift in Sources */,

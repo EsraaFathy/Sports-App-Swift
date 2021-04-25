@@ -14,5 +14,5 @@ struct URLs {
 
     public static let urlSports = "https://www.thesportsdb.com/api/v1/json/1/all_sports.php"
 
-    
+    public static var upCommingURL = ""
 }
