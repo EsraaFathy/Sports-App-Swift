@@ -15,7 +15,9 @@ class YoutubeViewController: UIViewController {
         super.viewDidLoad()
         let webKitView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
         self.view.addSubview(webKitView)
-        webKitView.load(URLRequest(url: URL(string: url)!))
+        print(url)
+        
+        //webKitView.load(URLRequest(url: URL(string: url)!)
         // Do any additional setup after loading the view.
     }
     

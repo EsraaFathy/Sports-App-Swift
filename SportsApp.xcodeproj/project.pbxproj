@@ -42,6 +42,7 @@
 		02791A2E263990A200E35BA8 /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A2D263990A200E35BA8 /* TeamService.swift */; };
 		02791A322639917500E35BA8 /* TeamDescTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A302639917500E35BA8 /* TeamDescTableViewController.swift */; };
 		02791A332639917500E35BA8 /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A312639917500E35BA8 /* YoutubeViewController.swift */; };
+		02791A3F2639B2E400E35BA8 /* WebProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A3E2639B2E400E35BA8 /* WebProtocol.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
 		02866525262DA2A7001650D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866524262DA2A7001650D1 /* SceneDelegate.swift */; };
 		02866527262DA2A7001650D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866526262DA2A7001650D1 /* ViewController.swift */; };
@@ -90,6 +91,7 @@
 		02791A2D263990A200E35BA8 /* TeamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
 		02791A302639917500E35BA8 /* TeamDescTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDescTableViewController.swift; sourceTree = "<group>"; };
 		02791A312639917500E35BA8 /* YoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
+		02791A3E2639B2E400E35BA8 /* WebProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProtocol.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02866522262DA2A7001650D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02866524262DA2A7001650D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,8 +130,8 @@
 		0269AA0626322C4E00CEE89C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02791A3D2639B2BF00E35BA8 /* Web */,
 				02791A302639917500E35BA8 /* TeamDescTableViewController.swift */,
-				02791A312639917500E35BA8 /* YoutubeViewController.swift */,
 				02866528262DA2A7001650D1 /* Main.storyboard */,
 				0269AA652634591400CEE89C /* Leagues */,
 				0269AA53263397A200CEE89C /* FavouriteViewController */,
@@ -259,6 +261,15 @@
 				0269AA7926345AC300CEE89C /* URLs.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		02791A3D2639B2BF00E35BA8 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				02791A312639917500E35BA8 /* YoutubeViewController.swift */,
+				02791A3E2639B2E400E35BA8 /* WebProtocol.swift */,
+			);
+			path = Web;
 			sourceTree = "<group>";
 		};
 		02866516262DA2A7001650D1 = {
@@ -447,6 +458,7 @@
 				0269A90D2630D68100CEE89C /* LeagueEventsViewController.swift in Sources */,
 				02791A2E263990A200E35BA8 /* TeamService.swift in Sources */,
 				026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */,
+				02791A3F2639B2E400E35BA8 /* WebProtocol.swift in Sources */,
 				02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */,
 				02791A322639917500E35BA8 /* TeamDescTableViewController.swift in Sources */,
 				0269AA6F263459E600CEE89C /* LeaguesViewModel.swift in Sources */,

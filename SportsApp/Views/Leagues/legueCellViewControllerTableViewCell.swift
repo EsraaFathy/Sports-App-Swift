@@ -18,7 +18,13 @@ class legueCellViewControllerTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+  
+    var openWeb : OpenWep?
+    
     @IBAction func openYoutubeChannal(_ sender: Any) {
+//        action!()
+        print("cell class")
+        openWeb?.openWebPage()
         
         
     }

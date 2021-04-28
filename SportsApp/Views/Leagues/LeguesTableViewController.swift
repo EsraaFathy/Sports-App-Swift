@@ -10,7 +10,8 @@ import UIKit
 import SwiftyJSON
 import SDWebImage
 
-class LeguesTableViewController: UITableViewController {
+class LeguesTableViewController: UITableViewController, OpenWep {
+    
 
     var leagues : [Countrys] = [Countrys]()
     var leagueViewModel : LeagueViewModel!
@@ -35,6 +36,7 @@ class LeguesTableViewController: UITableViewController {
               }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.youtubeLink = leagues[indexPath.row].strYoutube ?? "https://youtube.com"
         self.leadueID = leagues[indexPath.row].idLeague!
         self.model = FavoriteModelCoreData(Title: leagues[indexPath.row].strLeague ?? ""
                                            , Image: leagues[indexPath.row].strBadge ?? "",
@@ -44,13 +46,7 @@ class LeguesTableViewController: UITableViewController {
 
 
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if segue.identifier == "nav" {
-                let a = segue.destination as! LeagueEventsViewController
-                a.id = self.leadueID
-                a.model = self.model
-                }
-        }
+    
     func onSuccessUpdateView(){
            
         leagues = leagueViewModel.leagueData.countrys!
@@ -85,11 +81,21 @@ class LeguesTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return leagues.count
     }
+    var youtubeLink = ""
+   
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "nav" {
+                let a = segue.destination as! LeagueEventsViewController
+                a.id = self.leadueID
+                a.model = self.model
+            }
+        }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! legueCellViewControllerTableViewCell
-        if(leagues[indexPath.row].strYoutube==nil){
+        cell.openWeb = self
+        if(leagues[indexPath.row].strYoutube == ""){
             cell.youtubeBtn.isHidden=true
             cell.youtubeBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)).isActive=true
         }
@@ -99,9 +105,17 @@ class LeguesTableViewController: UITableViewController {
             cell.legueImg.sd_setImage(with: URL(string:leagues[indexPath.row].strBadge!),placeholderImage: UIImage(named: "placeholder"))
                    cell.legueImg.layer.cornerRadius = 30.0
         }
-       
-
+        self.youtubeLink = leagues[indexPath.row].strYoutube ?? "https://youtube.com"
         return cell
+    }
+    
+    
+    func openWebPage() {
+        print("youtubeLink................ \(youtubeLink)")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewController = storyBoard.instantiateViewController(withIdentifier: "YoutubeViewController") as! YoutubeViewController
+        newViewController.url = self.youtubeLink
+        self.navigationController?.pushViewController(newViewController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView,

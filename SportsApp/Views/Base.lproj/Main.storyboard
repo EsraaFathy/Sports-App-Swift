@@ -604,17 +604,18 @@
         <!--Youtube View Controller-->
         <scene sceneID="32d-ds-Kgb">
             <objects>
-                <viewController id="bW6-1K-l9N" customClass="YoutubeViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="YoutubeViewController" id="bW6-1K-l9N" customClass="YoutubeViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uul-A5-SHM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="CB2-gy-lDP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Kw3-LH-5ke"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P31-wT-cIB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="389.85507246376812" y="1194.6428571428571"/>
+            <point key="canvasLocation" x="2430" y="1235"/>
         </scene>
         <!--Team Desc Table View Controller-->
         <scene sceneID="VSu-qy-dbt">
@@ -760,6 +761,7 @@
                                                     <state key="normal" image="inst"/>
                                                     <connections>
                                                         <action selector="openInstagramAction:" destination="7D9-70-Qxg" eventType="touchUpInside" id="Um0-nT-Km4"/>
+                                                        <segue destination="bW6-1K-l9N" kind="push" identifier="aaa1" id="3dO-Gb-hH8"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-Ao-PMg">
@@ -767,6 +769,7 @@
                                                     <state key="normal" image="twi"/>
                                                     <connections>
                                                         <action selector="openTwitterAction:" destination="7D9-70-Qxg" eventType="touchUpInside" id="cLS-Ki-hBe"/>
+                                                        <segue destination="bW6-1K-l9N" kind="push" identifier="aaa2" id="jg1-D2-Fko"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tze-gC-9pb">
@@ -774,6 +777,7 @@
                                                     <state key="normal" image="face"/>
                                                     <connections>
                                                         <action selector="openFacebookAction:" destination="7D9-70-Qxg" eventType="touchUpInside" id="0Za-uY-8RW"/>
+                                                        <segue destination="bW6-1K-l9N" kind="push" identifier="aaa3" id="hIU-1d-CKy"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -819,10 +823,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EFu-16-fax" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3700.0000000000005" y="464.73214285714283"/>
+            <point key="canvasLocation" x="3590" y="1235"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="hIU-1d-CKy"/>
         <segue reference="FEb-kf-sbb"/>
     </inferredMetricsTieBreakers>
     <resources>

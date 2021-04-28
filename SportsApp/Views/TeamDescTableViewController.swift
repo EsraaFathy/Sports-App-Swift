@@ -83,13 +83,28 @@ class TeamDescTableViewController: UITableViewController {
            
        }
   
+    var linkYoutube = ""
     @IBAction func openFacebookAction(_ sender: Any) {
+        self.linkYoutube =  team[0].strFacebook ?? "https://facebook.com"
+        self.performSegue(withIdentifier: "aaa3", sender: nil)
+
     }
     
     @IBAction func openTwitterAction(_ sender: Any) {
+        self.linkYoutube =  team[0].strTwitter ?? "https://twitter.com"
+
+        self.performSegue(withIdentifier: "aaa2", sender: nil)
+
     }
     
     @IBAction func openInstagramAction(_ sender: Any) {
+        self.linkYoutube =  team[0].strInstagram ?? "https://instagram.com"
+        self.performSegue(withIdentifier: "aaa1", sender: nil)
+
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            let a = segue.destination as! YoutubeViewController
+            a.url = self.linkYoutube
+    }
 }
