@@ -163,16 +163,16 @@ extension LeagueEventsViewController : UICollectionViewDelegate, UICollectionVie
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "teamsSeague" {
-//            let a = segue.destination as! // class TeamsDetails
-//            a.id = teamID
-//            }
+        if segue.identifier == "profile" {
+            let a = segue.destination as! TeamDescTableViewController
+            a.teamID = teamID
+            }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == teamsCollectionView {
             self.teamID = teams[indexPath.row].idTeam!
-            // self.performSegue(withIdentifier: "navHome", sender: nil)
+            self.performSegue(withIdentifier: "profile", sender: nil)
         }
         print("pressed")
 
@@ -230,7 +230,7 @@ extension LeagueEventsViewController{
     
     
     func onSuccessUpComming(){
-        upcommingEventsArray = upCommingViewModel.UpcommingData.events!
+        upcommingEventsArray = upCommingViewModel.UpcommingData.events ?? []
         self.upcommingCollectionView.reloadData()
        }
        

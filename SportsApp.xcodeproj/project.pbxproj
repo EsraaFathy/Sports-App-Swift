@@ -37,6 +37,11 @@
 		0269AA9E2635BC0500CEE89C /* TeamsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0269AA9D2635BC0500CEE89C /* TeamsViewModel.swift */; };
 		026D2039262FAFA60081DC38 /* AllSportsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2038262FAFA60081DC38 /* AllSportsModel.swift */; };
 		026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */; };
+		02791A2526398EC500E35BA8 /* TeamDescViewMobdel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A2426398EC500E35BA8 /* TeamDescViewMobdel.swift */; };
+		02791A2B2639906000E35BA8 /* TeamsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A2A2639906000E35BA8 /* TeamsEntity.swift */; };
+		02791A2E263990A200E35BA8 /* TeamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A2D263990A200E35BA8 /* TeamService.swift */; };
+		02791A322639917500E35BA8 /* TeamDescTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A302639917500E35BA8 /* TeamDescTableViewController.swift */; };
+		02791A332639917500E35BA8 /* YoutubeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02791A312639917500E35BA8 /* YoutubeViewController.swift */; };
 		02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866522262DA2A7001650D1 /* AppDelegate.swift */; };
 		02866525262DA2A7001650D1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866524262DA2A7001650D1 /* SceneDelegate.swift */; };
 		02866527262DA2A7001650D1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02866526262DA2A7001650D1 /* ViewController.swift */; };
@@ -80,6 +85,11 @@
 		0269AA9D2635BC0500CEE89C /* TeamsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsViewModel.swift; sourceTree = "<group>"; };
 		026D2038262FAFA60081DC38 /* AllSportsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSportsModel.swift; sourceTree = "<group>"; };
 		026D2044262FC91C0081DC38 /* MYCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MYCollectionViewCell.swift; sourceTree = "<group>"; };
+		02791A2426398EC500E35BA8 /* TeamDescViewMobdel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDescViewMobdel.swift; sourceTree = "<group>"; };
+		02791A2A2639906000E35BA8 /* TeamsEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamsEntity.swift; sourceTree = "<group>"; };
+		02791A2D263990A200E35BA8 /* TeamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamService.swift; sourceTree = "<group>"; };
+		02791A302639917500E35BA8 /* TeamDescTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDescTableViewController.swift; sourceTree = "<group>"; };
+		02791A312639917500E35BA8 /* YoutubeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeViewController.swift; sourceTree = "<group>"; };
 		0286651F262DA2A7001650D1 /* SportsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02866522262DA2A7001650D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02866524262DA2A7001650D1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +128,8 @@
 		0269AA0626322C4E00CEE89C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				02791A302639917500E35BA8 /* TeamDescTableViewController.swift */,
+				02791A312639917500E35BA8 /* YoutubeViewController.swift */,
 				02866528262DA2A7001650D1 /* Main.storyboard */,
 				0269AA652634591400CEE89C /* Leagues */,
 				0269AA53263397A200CEE89C /* FavouriteViewController */,
@@ -204,6 +216,7 @@
 		0269AA6C2634597C00CEE89C /* Pojos */ = {
 			isa = PBXGroup;
 			children = (
+				02791A2A2639906000E35BA8 /* TeamsEntity.swift */,
 				0269AA4B26335D9700CEE89C /* FavoriteModelCoreData.swift */,
 				026D2038262FAFA60081DC38 /* AllSportsModel.swift */,
 				0269AA20263245C000CEE89C /* TeamsModel */,
@@ -217,6 +230,7 @@
 		0269AA6D2634598800CEE89C /* ModelViews */ = {
 			isa = PBXGroup;
 			children = (
+				02791A2426398EC500E35BA8 /* TeamDescViewMobdel.swift */,
 				0269AA6E263459E600CEE89C /* LeaguesViewModel.swift */,
 				0269AA8626347E5300CEE89C /* HomeViewModel.swift */,
 				0269AA8C2634894000CEE89C /* UpcommingViewModel.swift */,
@@ -229,6 +243,7 @@
 		0269AA7426345A2800CEE89C /* Nerwork */ = {
 			isa = PBXGroup;
 			children = (
+				02791A2D263990A200E35BA8 /* TeamService.swift */,
 				0269AA7526345A2800CEE89C /* LeagueService.swift */,
 				0269AA8926347EA400CEE89C /* SportsService.swift */,
 				0269AA8F26348A6F00CEE89C /* UpcommingService.swift */,
@@ -430,14 +445,19 @@
 				02866527262DA2A7001650D1 /* ViewController.swift in Sources */,
 				0269AA692634594F00CEE89C /* legueCellViewControllerTableViewCell.swift in Sources */,
 				0269A90D2630D68100CEE89C /* LeagueEventsViewController.swift in Sources */,
+				02791A2E263990A200E35BA8 /* TeamService.swift in Sources */,
 				026D2045262FC91C0081DC38 /* MYCollectionViewCell.swift in Sources */,
 				02866523262DA2A7001650D1 /* AppDelegate.swift in Sources */,
+				02791A322639917500E35BA8 /* TeamDescTableViewController.swift in Sources */,
 				0269AA6F263459E600CEE89C /* LeaguesViewModel.swift in Sources */,
 				0269AA9026348A6F00CEE89C /* UpcommingService.swift in Sources */,
 				0269AA682634594F00CEE89C /* LeguesTableViewController.swift in Sources */,
+				02791A2B2639906000E35BA8 /* TeamsEntity.swift in Sources */,
 				0269A9152630DE8600CEE89C /* LastEventesTableViewCell.swift in Sources */,
 				02866540262DA945001650D1 /* FavouriteViewController.swift in Sources */,
 				0269AA3C2632486600CEE89C /* LastEventFile.swift in Sources */,
+				02791A332639917500E35BA8 /* YoutubeViewController.swift in Sources */,
+				02791A2526398EC500E35BA8 /* TeamDescViewMobdel.swift in Sources */,
 				02866525262DA2A7001650D1 /* SceneDelegate.swift in Sources */,
 				0269AA8D2634894000CEE89C /* UpcommingViewModel.swift in Sources */,
 				0269AA9B2635BB8000CEE89C /* TeamsService.swift in Sources */,
