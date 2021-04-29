@@ -22,6 +22,7 @@ class TeamDescTableViewController: UITableViewController {
     var teamViewModel :TeamDescViewModel!
     var team = [Teams]()
     var teamID:String!
+    var linkYoutube = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         URLs.teamId = self.teamID
@@ -83,7 +84,6 @@ class TeamDescTableViewController: UITableViewController {
            
        }
   
-    var linkYoutube = ""
     @IBAction func openFacebookAction(_ sender: Any) {
         self.linkYoutube =  team[0].strFacebook ?? "https://facebook.com"
         self.performSegue(withIdentifier: "aaa3", sender: nil)
@@ -106,5 +106,7 @@ class TeamDescTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let a = segue.destination as! YoutubeViewController
             a.url = self.linkYoutube
+        print("home \(self.linkYoutube) ..... away \(a.url)")
     }
+    
 }

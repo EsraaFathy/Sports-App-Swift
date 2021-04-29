@@ -61,6 +61,10 @@ class LeagueEventsViewController: UIViewController {
         self.scrollView.contentSize = CGSize(width: screenWidth, height: 1000)
         self.scrollView.frame = CGRect(x: 0, y: 70, width: screenWidth, height: screenHeight)
         scrollView.backgroundColor = UIColor.clear
+        let sWidth = screenRect.size.width
+        self.upcommingCollectionView.frame = CGRect(x: 0, y: 40, width: sWidth, height: 176)
+        self.lastEventsTableView.frame = CGRect(x: 0, y: 224, width: sWidth, height: 527)
+        self.teamsCollectionView.frame = CGRect(x: 0, y: 788, width: sWidth, height: 109)
 
         self.featchCoreData()
         self.feachTeams(LeagueId: id)
@@ -205,14 +209,14 @@ extension LeagueEventsViewController{
         }
     }
     func onSuccessTeams(){
-        self.teams = teamsViewModel.teamsData.teams!
+        self.teams = teamsViewModel.teamsData.teams ?? []
         self.feachUpComming(LeagueId: id)
         self.fetchLastEvents(leagueId: id)
         self.teamsCollectionView.reloadData()
        }
     
     func onSuccessLastEvents(){
-        self.lastEventsArray = lastEventsViewModel.lastEventsData.events!
+        self.lastEventsArray = lastEventsViewModel.lastEventsData.events ?? []
         self.lastEventsTableView.reloadData()
        }
        

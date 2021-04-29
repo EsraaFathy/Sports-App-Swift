@@ -17,7 +17,7 @@ class YoutubeViewController: UIViewController {
         self.view.addSubview(webKitView)
         print(url)
         
-        //webKitView.load(URLRequest(url: URL(string: url)!)
+        webKitView.load(URLRequest(url: URL(string: "https://twitter.com")!))
         // Do any additional setup after loading the view.
     }
     

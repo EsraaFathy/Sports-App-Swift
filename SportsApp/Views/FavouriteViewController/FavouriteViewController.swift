@@ -30,10 +30,15 @@ extension FavouriteViewController : UITableViewDelegate , UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! FavouriteTableViewCell
         cell.leagueImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        
         cell.leagueImage.sd_setImage(with: URL(string: arrayOfFafourite[indexPath.row].image!), placeholderImage: UIImage(named: "placeholder"))
         cell.leagueLabel.text = arrayOfFafourite[indexPath.row].title
+        cell.url = arrayOfFafourite[indexPath.row].youtube ?? ""
+        
         if arrayOfFafourite[indexPath.row].youtube != "" {
-            cell.youtubeImage.image = UIImage(named: "y")
+//            cell.youtubeImage.imageView?.image = UIImage(named: "y")
+            cell.youtubeImage.setImage(UIImage(named: "y"), for: .normal)
+            print("shoooowooooooooooow")
         }
         return cell
     }
