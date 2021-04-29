@@ -13,6 +13,8 @@ class legueCellViewControllerTableViewCell: UITableViewCell {
     @IBOutlet weak var legueImg: UIImageView!
     @IBOutlet weak var titleLegueLabel: UILabel!
     @IBOutlet weak var youtubeBtn: UIButton!
+    var url : String = ""
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,11 +24,8 @@ class legueCellViewControllerTableViewCell: UITableViewCell {
     var openWeb : OpenWep?
     
     @IBAction func openYoutubeChannal(_ sender: Any) {
-//        action!()
-        print("cell class")
-        openWeb?.openWebPage()
-        
-        
+
+        UIApplication.shared.openURL(URL(string: "https://\(self.url)")!)
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

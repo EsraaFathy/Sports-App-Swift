@@ -10,12 +10,12 @@ import UIKit
 
 class TeamDescTableViewController: UITableViewController {
 
+    @IBOutlet weak var teamDesc: UILabel!
     @IBOutlet weak var coverImgView: UIImageView!
     @IBOutlet weak var teamImgView: UIImageView!
     @IBOutlet weak var teamName: UILabel!
     @IBOutlet weak var teamLeague: UILabel!
     @IBOutlet weak var teamCountry: UILabel!
-    @IBOutlet weak var teamDesc: UITextView!
     @IBOutlet weak var facebookBtn: UIButton!
     @IBOutlet weak var twitterBtn: UIButton!
     @IBOutlet weak var instgramBtn: UIButton!
@@ -44,16 +44,15 @@ class TeamDescTableViewController: UITableViewController {
     func onSuccessUpdateView(){
            
         self.team = teamViewModel.teamData.teams!
-        print("teeeeeeeeaaaaaaam\(team)")
-        if(team[0].strFacebook==nil){
+        if(team[0].strFacebook==""){
                   facebookBtn.isHidden=true
                 facebookBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)).isActive=true
               }
-        if(team[0].strTwitter==nil){
+        if(team[0].strTwitter==""){
                          twitterBtn.isHidden=true
                        twitterBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)).isActive=true
                      }
-        if(team[0].strInstagram==nil){
+        if(team[0].strInstagram==""){
                          instgramBtn.isHidden=true
                        instgramBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)).isActive=true
                      }
@@ -85,22 +84,21 @@ class TeamDescTableViewController: UITableViewController {
        }
   
     @IBAction func openFacebookAction(_ sender: Any) {
-        self.linkYoutube =  team[0].strFacebook ?? "https://facebook.com"
-        self.performSegue(withIdentifier: "aaa3", sender: nil)
-
+        let youtubeView = self.storyboard!.instantiateViewController(withIdentifier: "YoutubeViewController") as! YoutubeViewController
+                youtubeView.url = self.team[0].strFacebook!
+                self.navigationController?.pushViewController(youtubeView, animated: true)
     }
     
     @IBAction func openTwitterAction(_ sender: Any) {
-        self.linkYoutube =  team[0].strTwitter ?? "https://twitter.com"
-
-        self.performSegue(withIdentifier: "aaa2", sender: nil)
-
+        let youtubeView = self.storyboard!.instantiateViewController(withIdentifier: "YoutubeViewController") as! YoutubeViewController
+        youtubeView.url = self.team[0].strTwitter!
+        self.navigationController?.pushViewController(youtubeView, animated: true)
     }
     
     @IBAction func openInstagramAction(_ sender: Any) {
-        self.linkYoutube =  team[0].strInstagram ?? "https://instagram.com"
-        self.performSegue(withIdentifier: "aaa1", sender: nil)
-
+        let youtubeView = self.storyboard!.instantiateViewController(withIdentifier: "YoutubeViewController") as! YoutubeViewController
+                      youtubeView.url = self.team[0].strInstagram!
+                      self.navigationController?.pushViewController(youtubeView, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

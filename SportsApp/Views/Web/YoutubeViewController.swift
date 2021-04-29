@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 class YoutubeViewController: UIViewController {
-    var url = "https://twitter.com"
+    var url = ""
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class YoutubeViewController: UIViewController {
         self.view.addSubview(webKitView)
         print(url)
         
-        webKitView.load(URLRequest(url: URL(string: "https://twitter.com")!))
+        webKitView.load(URLRequest(url: URL(string: "https://\(url)")!))
         // Do any additional setup after loading the view.
     }
     

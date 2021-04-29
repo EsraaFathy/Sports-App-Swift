@@ -12,7 +12,7 @@ import Alamofire
 
 class FavouriteViewController: UIViewController {
     var arrayOfFafourite = [FavoriteModelCoreData]()
-    var row = 1
+    var row : Int!
     private let manager = NetworkReachabilityManager(host: "www.apple.com")
     
     @IBOutlet weak var tableView: UITableView!
@@ -61,8 +61,8 @@ extension FavouriteViewController : UITableViewDelegate , UITableViewDataSource{
             for i in arrayfdNSManagedObject {
                 let fav = FavoriteModelCoreData(Title: i.value(forKey: "title") as! String, Image: i.value(forKey: "image") as! String, Youtube: i.value(forKey: "youtube") as! String, ID: i.value(forKey: "id") as! String)
                 self.arrayOfFafourite.append(fav)
-                self.tableView.reloadData()
-            }
+                }
+            self.tableView.reloadData()
         }
     }
     

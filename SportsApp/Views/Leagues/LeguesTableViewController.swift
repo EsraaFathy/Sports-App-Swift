@@ -105,7 +105,7 @@ class LeguesTableViewController: UITableViewController, OpenWep {
             cell.legueImg.sd_setImage(with: URL(string:leagues[indexPath.row].strBadge!),placeholderImage: UIImage(named: "placeholder"))
                    cell.legueImg.layer.cornerRadius = 30.0
         }
-        self.youtubeLink = leagues[indexPath.row].strYoutube ?? "https://youtube.com"
+        cell.url = leagues[indexPath.row].strYoutube ?? "https://youtube.com"
         return cell
     }
     
