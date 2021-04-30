@@ -13,5 +13,8 @@ target 'SportsApp' do
 pod 'Alamofire', '~> 5.2'
 pod 'SDWebImage', '~> 5.0'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'RxSwift', '6.1.0'
+pod 'RxCocoa', '6.1.0'
+
 
 end
