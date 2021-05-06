@@ -10,16 +10,29 @@ import UIKit
 import SwiftyJSON
 import SDWebImage
 
-class LeguesTableViewController: UITableViewController, OpenWep {
+class LeguesTableViewController: UITableViewController, OpenWep, UISearchBarDelegate {
     
 
+    @IBOutlet var searchBarView: UISearchBar!
     var leagues : [Countrys] = [Countrys]()
     var leagueViewModel : LeagueViewModel!
     var sportName : String = ""
     var leadueID = ""
     var model :FavoriteModelCoreData!
+    var flag = false
+    var filterdLeagues : [Countrys] = [Countrys]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.titleView = searchBarView
+
+        // 1
+        searchBarView.delegate = self
+        definesPresentationContext = true
+        
+        
+        
+        
         URLs.getLeagueListURL = "https://www.thesportsdb.com/api/v1/json/1/search_all_leagues.php?s=\(sportName)"
         print("sport name from home .... \(URLs.getLeagueListURL)")
          leagueViewModel = LeagueViewModel()
@@ -79,7 +92,11 @@ class LeguesTableViewController: UITableViewController, OpenWep {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if flag == true {
+            return filterdLeagues.count
+        }else{
         return leagues.count
+        }
     }
     var youtubeLink = ""
    
@@ -95,6 +112,23 @@ class LeguesTableViewController: UITableViewController, OpenWep {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! legueCellViewControllerTableViewCell
         cell.openWeb = self
+        if flag == true {
+            
+            if(filterdLeagues[indexPath.row].strYoutube == ""){
+                cell.youtubeBtn.isHidden=true
+                cell.youtubeBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)).isActive=true
+            }
+            cell.titleLegueLabel.text=filterdLeagues[indexPath.row].strLeague
+            if filterdLeagues[indexPath.row].strBadge != nil {
+                cell.legueImg.sd_imageIndicator = SDWebImageActivityIndicator.gray
+                cell.legueImg.sd_setImage(with: URL(string:filterdLeagues[indexPath.row].strBadge!),placeholderImage: UIImage(named: "placeholder"))
+                       cell.legueImg.layer.cornerRadius = 30.0
+            }
+            cell.url = filterdLeagues[indexPath.row].strYoutube ?? "https://youtube.com"
+            
+            
+            return cell
+        }else{
         if(leagues[indexPath.row].strYoutube == ""){
             cell.youtubeBtn.isHidden=true
             cell.youtubeBtn.heightAnchor.constraint(equalToConstant: CGFloat(0)).isActive=true
@@ -107,6 +141,7 @@ class LeguesTableViewController: UITableViewController, OpenWep {
         }
         cell.url = leagues[indexPath.row].strYoutube ?? "https://youtube.com"
         return cell
+        }
     }
     
     
@@ -167,4 +202,31 @@ class LeguesTableViewController: UITableViewController, OpenWep {
     }
     */
 
+}
+
+extension LeguesTableViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    print("updaated")
+  }
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+        filterdLeagues = [Countrys]()
+        if searchText == "" {
+            flag = false
+            self.tableView.reloadData()
+        }else{
+            flag = true
+            for c in leagues {
+                if c.strLeague?.contains(searchText) == true {
+                    filterdLeagues.append(c)
+                }
+            }
+            
+            
+            self.tableView.reloadData()
+        }
+        
+    }
 }

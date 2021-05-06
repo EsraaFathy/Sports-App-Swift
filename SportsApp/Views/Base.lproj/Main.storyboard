@@ -73,10 +73,16 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="TSU-TF-MLF"/>
                     <connections>
+                        <outlet property="searchBarView" destination="gfg-Y9-lzI" id="VMZ-Nk-mA3"/>
                         <segue destination="qxn-Ia-eCA" kind="push" identifier="nav" id="FEb-kf-sbb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qns-9e-oyp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" placeholder="searchBar" id="gfg-Y9-lzI">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </objects>
             <point key="canvasLocation" x="1380" y="797"/>
         </scene>
@@ -710,7 +716,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfD-5i-Ody">
                                                     <rect key="frame" x="10" y="7" width="394" height="210"/>
-                                                    <mutableString key="text">Label LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel Label</mutableString>
+                                                    <string key="text">Label LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel LabelLabel Label</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -805,7 +811,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ev6-Cf-jqM"/>
+        <segue reference="FEb-kf-sbb"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="face" width="32" height="32"/>
